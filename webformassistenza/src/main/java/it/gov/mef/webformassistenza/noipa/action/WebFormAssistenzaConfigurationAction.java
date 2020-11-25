@@ -10,6 +10,7 @@ import com.liferay.portal.kernel.portlet.ConfigurationAction;
 import com.liferay.portal.kernel.portlet.DefaultConfigurationAction;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.upload.UploadPortletRequest;
+import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.Validator;
@@ -19,6 +20,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 import javax.portlet.ActionRequest;
@@ -188,9 +190,17 @@ public class WebFormAssistenzaConfigurationAction extends DefaultConfigurationAc
             _log.info("file: "+file.toPath());
             
             
-            
+           
+            		
+            	//Chiamata new metodo
+            	readFileCsv(file);
         
-              _log.info("Csv1 size ="+jsonArray.length());
+              //_log.info("Csv1 size ="+righeCsv.size());
+              
+              
+              
+              
+              
         }
 		String json = jsonArray.toJSONString();
 		
@@ -236,8 +246,7 @@ public class WebFormAssistenzaConfigurationAction extends DefaultConfigurationAc
             _log.info("sourceFileName: "+sourceFileName);
             _log.info("sizeFile: "+sizeFileCat);
             _log.info("file: "+file.toPath());
-            
-        	
+           
         	_log.info("Cv2 size ="+jsonArray_cat.length());
         }
 		String json_cat = jsonArray_cat.toJSONString();
@@ -246,6 +255,43 @@ public class WebFormAssistenzaConfigurationAction extends DefaultConfigurationAc
 		else 
 			setPreference(actionRequest, "listaCategoriaUtenti", "");
 	}
+	
+	/*
+	 *Metodo generico per leggere i files csv e trasformarlo in JSONArray  
+	 * 
+	 */
+	private JSONArray readFileCsv(File fileCsv) throws IOException {
+
+		 List<String> listaRigheCsv=ListUtil.fromFile(fileCsv);
+		 
+		 if(ListUtil.isNotEmpty(listaRigheCsv) && ListUtil.isNotNull(listaRigheCsv)) {
+			 
+			 //Intestazione 
+			 String[] intestazioneFile=listaRigheCsv.get(0).split(";");
+			 
+			 //Eliminando l'intestazione dalla lista delle righe del file
+			 listaRigheCsv.remove(0);
+		 
+			 //Ciclo delle righe del file
+			 for (String riga : listaRigheCsv) {
+				
+				 JSONObject jsonObject=JSONFactoryUtil.createJSONObject();
+				 
+				 String[] listaCelle=riga.split(";");
+				 
+				 //Recuperando il valore corrispondente all'intestazione per ogni riga 
+				 for(int index=0;index<intestazioneFile.length;index++) {
+					 jsonObject.put(intestazioneFile[index], listaCelle[index]);
+				 }
+				 
+				_log.info("Json:"+jsonObject.toJSONString());
+				 
+			}
+		 }
+		return null;
+	}
+	
+	
 	
     /* (non-Javadoc)
      * @see com.liferay.portal.kernel.portlet.SettingsConfigurationAction#processAction(javax.portlet.PortletConfig, javax.portlet.ActionRequest, javax.portlet.ActionResponse)

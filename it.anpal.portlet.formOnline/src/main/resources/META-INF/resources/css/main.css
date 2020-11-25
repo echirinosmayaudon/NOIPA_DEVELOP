@@ -1,0 +1,26 @@
+.it.anpal.portlet.test {		
+	}
+	
+	@media screen and (min-width: 1200px) {	
+		#campi-Allegati> .lfr-form-row> .row-fields> div > .form-group> input{
+		min-width:700px;
+		}
+	}
+		
+	@media screen and (max-width: 1199px) {
+	#campi-Allegati> .lfr-form-row> .row-fields> div > .form-group> input{
+	min-width:500px;
+		}
+	}
+	
+	@media screen and (max-width: 900px) {
+	#campi-Allegati> .lfr-form-row> .row-fields> div > .form-group> input{
+	min-width:300px;
+		}
+	}
+	
+		@media screen and (max-width: 899px) {
+	#campi-Allegati> .lfr-form-row> .row-fields> div > .form-group> input{
+	min-width:auto;
+		}
+	}
