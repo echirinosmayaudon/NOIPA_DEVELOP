@@ -78,8 +78,7 @@ public class NoiPAWebAssistenzaUtils {
 	 * @return true, if is valid
 	 */
 	public static boolean isValid(String mailconfigMail, String mailconfigNominativo, String mailconfigMailHp,
-			String linkAmministrazione , List<?> listaCategoriaUtenti, List<?> listaArea, 
-			List<?> listaTematica, List<?> listaTipologia, 
+			String linkAmministrazione , List<?> listaCategoriaUtenti, 
 			ConfigurazioneENUM configurazioneENUM) {
 		
 		boolean isValid = false;
@@ -94,21 +93,10 @@ public class NoiPAWebAssistenzaUtils {
 			isValid = Validator.isNotNull(mailconfigMail) && Validator.isNotNull(mailconfigNominativo) && Validator.isNotNull(mailconfigMailHp) &&
 					  Validator.isNotNull(linkAmministrazione);
 			break;
-		case AREA:
-			isValid = Validator.isNotNull(mailconfigMail) && Validator.isNotNull(mailconfigNominativo) && Validator.isNotNull(mailconfigMailHp) && 
-					  Validator.isNotNull(linkAmministrazione) && (listaCategoriaUtenti != null && listaCategoriaUtenti.size()>0);
-			break;
-		case TEMATICA:
-			isValid = Validator.isNotNull(mailconfigMail) && Validator.isNotNull(mailconfigNominativo) && Validator.isNotNull(mailconfigMailHp) && 
-					  Validator.isNotNull(linkAmministrazione) && (listaCategoriaUtenti != null && listaCategoriaUtenti.size()>0) && (listaArea != null && listaArea.size()>0) ;
-			break;
-		case TIPOLOGIA:
-			isValid = Validator.isNotNull(mailconfigMail) && Validator.isNotNull(mailconfigNominativo) && Validator.isNotNull(mailconfigMailHp) && 
-					  Validator.isNotNull(linkAmministrazione) && (listaCategoriaUtenti != null && listaCategoriaUtenti.size()>0) && (listaArea != null && listaArea.size()>0) && (listaTematica != null && listaTematica.size()>0) ;
-			break;
+		
 		case HOME:
 			isValid = Validator.isNotNull(mailconfigMail) && Validator.isNotNull(mailconfigNominativo) && Validator.isNotNull(mailconfigMailHp) && 
-					  Validator.isNotNull(linkAmministrazione) && (listaCategoriaUtenti != null && listaCategoriaUtenti.size()>0) && (listaArea != null && listaArea.size()>0) && (listaTematica != null && listaTematica.size()>0) && (listaTipologia != null && listaTipologia.size()>0) ;
+					  Validator.isNotNull(linkAmministrazione) && (listaCategoriaUtenti != null && listaCategoriaUtenti.size()>0);
 			break;
 		}
 		

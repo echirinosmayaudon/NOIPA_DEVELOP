@@ -2,7 +2,7 @@
 
 <div class="container p-4">
 	    <liferay-ui:tabs
-	    names="noipawebformassistenza.config.serviceconfig,noipawebformassistenza.config.contentconfig,noipawebformassistenza.config.mailconfig,noipawebformassistenza.config.amministrazione,noipawebformassistenza.config.catuser,noipawebformassistenza.config.area,noipawebformassistenza.config.tematica,noipawebformassistenza.config.tipologia"
+	    names="noipawebformassistenza.config.serviceconfig,noipawebformassistenza.config.contentconfig,noipawebformassistenza.config.mailconfig,noipawebformassistenza.config.csv.1,noipawebformassistenza.config.csv.2"
 	    param="tabs2"
 	    refresh="<%= false %>"
 	    type="tabs nav-tabs-default"
@@ -19,19 +19,10 @@
 		       			<%@ include file="tabconfig/mailconfig.jsp" %>	
 			    </liferay-ui:section>
 			    <liferay-ui:section >
-		       			<%@ include file="tabconfig/amministrazione.jsp" %>	
+		       			<%@ include file="tabconfig/configCsv1.jsp" %>	
 			    </liferay-ui:section>
 			    <liferay-ui:section >
-			       		<%@ include file="tabconfig/categoriautenti.jsp" %>	
-			    </liferay-ui:section>
-			    <liferay-ui:section >
-			       		<%@ include file="tabconfig/area.jsp" %>	
-			    </liferay-ui:section>
-			    <liferay-ui:section >
-			       		<%@ include file="tabconfig/tematica.jsp" %>	
-			    </liferay-ui:section>
-			    <liferay-ui:section >
-			       		<%@ include file="tabconfig/tipologiaproblema.jsp" %>	
+			       		<%@ include file="tabconfig/configCsv2.jsp" %>	
 			    </liferay-ui:section>
 		    </div>
 	    </div>

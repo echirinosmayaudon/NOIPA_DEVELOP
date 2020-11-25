@@ -19,15 +19,7 @@ public interface WebFormAssistenzaConfiguration {
      */
     @Meta.AD(required = false)
     public String linkAmministrazione();
-    
-    /**
-     * Element categoriautenti num.
-     *
-     * @return the string
-     */
-    @Meta.AD(required = false)
-    public String elementCategoriautentiNum();
-    
+
     /**
      * Lista categoria utenti.
      *
@@ -35,30 +27,6 @@ public interface WebFormAssistenzaConfiguration {
      */
     @Meta.AD(required = false)
     public String listaCategoriaUtenti();
-    
-    /**
-     * Lista area.
-     *
-     * @return the string
-     */
-    @Meta.AD(required = false)
-    public String listaArea();
-    
-    /**
-     * Lista tematica.
-     *
-     * @return the string
-     */
-    @Meta.AD(required = false)
-    public String listaTematica();
-    
-    /**
-     * Lista tipologia.
-     *
-     * @return the string
-     */
-    @Meta.AD(required = false)
-    public String listaTipologia();
     
     /**
      * Mailconfig mail.
@@ -84,8 +52,6 @@ public interface WebFormAssistenzaConfiguration {
      */
     @Meta.AD(required = false,deflt="NoiPa HelpDesk")
     public String mailconfigNominativoBE();
-    
-    
     
     /**
      * Mailconfig mail hp.

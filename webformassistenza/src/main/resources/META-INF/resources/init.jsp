@@ -131,15 +131,18 @@ WebFormAssistenzaConfiguration exampleConfiguration =
     	mailconfigNominativoBE =  portletPreferences.getValue(
                 "mailconfigNominativoBE", exampleConfiguration.mailconfigNominativoBE());
     	
-        
+        /*
         elementCategoriautentiNum =
                 portletPreferences.getValue(
                         "elementCategoriautentiNum", exampleConfiguration.elementCategoriautentiNum());
         
-        int size = elementCategoriautentiNum != null ? Integer.parseInt(elementCategoriautentiNum):0;
+         	int size = elementCategoriautentiNum != null ? Integer.parseInt(elementCategoriautentiNum):0;
         
+        */
         
+     	
         
+       
         
         linkAmministrazione =
                 portletPreferences.getValue(
@@ -192,83 +195,7 @@ WebFormAssistenzaConfiguration exampleConfiguration =
         	     <%
         	}
         	
-        }
-        
-        area = portletPreferences.getValue("listaArea", exampleConfiguration.listaArea());
-        //_log.info(area);
-        if(area != null && !"".equalsIgnoreCase(area) && area.length()>2){
-        	JSONArray jsonArray = JSONFactoryUtil.createJSONArray(area);
-        	int length = jsonArray.length();
-        	for(int i = 0; i<length; i++){
-        		JSONObject jsonObject = jsonArray.getJSONObject(i);
-        		String karea = jsonObject.getString("karea"+(i+1));
-        		String varea = jsonObject.getString("varea"+(i+1));
-        		String tarea = jsonObject.getString("tarea"+(i+1));
-        		ConfigurazioneBeanEx bean = new ConfigurazioneBeanEx(karea,varea,tarea);
-        		String appoAr = "{\"key\":\""+karea+"\",\"value\":\""+varea+"\",\"type\":\""+tarea+"\"}";
-        		//_log.info("appoAr: "+appoAr);
-        		listaArea.add(bean);
-	       	     %>
-	 	        	appoA[<%=i%>] = jQuery.parseJSON('<%=appoAr%>');
-	 	   		 <%
-        	}
-        }
-        
-        tematica = portletPreferences.getValue("listaTematica", exampleConfiguration.listaTematica());
-        if(tematica != null && !"".equalsIgnoreCase(tematica) && tematica.length()>2){
-        	JSONArray jsonArray = JSONFactoryUtil.createJSONArray(tematica);
-        	int length = jsonArray.length();
-        	for(int i = 0; i<length; i++){
-        		JSONObject jsonObject = jsonArray.getJSONObject(i);
-        		String ktematica = jsonObject.getString("ktematica"+(i+1));
-        		String vtematica = jsonObject.getString("vtematica"+(i+1));
-        		String ttematica = jsonObject.getString("ttematica"+(i+1));
-        		ConfigurazioneBeanEx bean = new ConfigurazioneBeanEx(ktematica,vtematica,ttematica);
-        		String appoTem = "{\"key\":\""+ktematica+"\",\"value\":\""+vtematica+"\",\"type\":\""+ttematica+"\"}";
-        		//_log.info("appoTem: "+appoTem);
-        		listaTematica.add(bean);
-	       	     %>
-	       	  		appoTm[<%=i%>] = jQuery.parseJSON('<%=appoTem%>');
-	 	   		 <%
-        	}
-        }
-        
-        tipologia = portletPreferences.getValue("listaTipologia", exampleConfiguration.listaTipologia());
-        if(tipologia != null && !"".equalsIgnoreCase(tipologia) && tipologia.length()>2){
-        	JSONArray jsonArray = JSONFactoryUtil.createJSONArray(tipologia);
-        	int length = jsonArray.length();
-        	for(int i = 0; i<length; i++){
-        		
-        		/*
-
-						json_tipologia.put("cutipologia" + index, cutipologia);
-						json_tipologia.put("artipologia" + index, artipologia);
-						json_tipologia.put("tetipologia" + index, tetipologia);
-						json_tipologia.put("titipologia" + index, titipologia);
-        		
-        		*/
-        		
-        		
-        		JSONObject jsonObject = jsonArray.getJSONObject(i);
-        		String cutipologia = jsonObject.getString("cutipologia"+(i+1));
-        		String artipologia = jsonObject.getString("artipologia"+(i+1));
-        		String tetipologia = jsonObject.getString("tetipologia"+(i+1));
-        		String titipologia = jsonObject.getString("titipologia"+(i+1));
-        		ConfigurazioneBeanEx bean = new ConfigurazioneBeanEx(cutipologia,artipologia,tetipologia,titipologia);
-        		String appoTpT = "{\"key\":\""+cutipologia+"\",\"value\":\""+artipologia+"\",\"type\":\""+tetipologia+"\",\"extra\":\""+titipologia+"\"}";
-        		//_log.info("appoTpT: "+appoTpT);
-        		listaTipologia.add(bean);
-	       	     %>
-	       	  		appoTp[<%=i%>] = jQuery.parseJSON('<%=appoTpT%>');
-	 	   		 <%
-        	}
-        }
-        
-
+        }  
     } 
-    /* else {
-    	_log.info("exampleConfiguration is Null");
-    } */
-   
 %>
 </script>

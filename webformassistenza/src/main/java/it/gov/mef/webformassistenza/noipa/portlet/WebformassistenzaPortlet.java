@@ -135,7 +135,7 @@ public class WebformassistenzaPortlet extends MVCPortlet {
 	/** The Constant formati. */
 	private final static String[] formati = {"txt","png","xls","pdf","doc","ipg"};
 	
-	
+	/*ModConfig metodo da cambiare 25-11-2020*/
 	
     /* (non-Javadoc)
      * @see com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet#doView(javax.portlet.RenderRequest, javax.portlet.RenderResponse)
@@ -206,6 +206,8 @@ public class WebformassistenzaPortlet extends MVCPortlet {
     }
     
     
+    /*ModConfig metodo da cambiare 25-11-2020*/
+    
     /**
      * Visualizza il form dell'assistenza.
      *
@@ -275,6 +277,8 @@ public class WebformassistenzaPortlet extends MVCPortlet {
 		Locale locale = themeDisplay.getLocale();
 		return locale;
     }
+    
+    /*ModConfig metodo da verificare 25-11-2020*/
     
     /**
      * Predispone ed invoca la chiamata rest al servizio d'assistenza.
@@ -674,6 +678,7 @@ public class WebformassistenzaPortlet extends MVCPortlet {
 		return listaAssistenza;	
 	}
 	
+	/*ModConfig metodo da cambiare 25-11-2020*/
 
     /**
      * Restituisce gli enti dalla configurazione.
@@ -683,6 +688,7 @@ public class WebformassistenzaPortlet extends MVCPortlet {
      */
 	private void getEnti(PortletRequest portletRequest){
 		PortletPreferences preferences = portletRequest.getPreferences();
+		
 		Map<String,String> enti = new HashMap<String,String>();
 		String linkAmministrazione = preferences.getValue("linkAmministrazione", _exampleConfiguration.linkAmministrazione());
 		try {

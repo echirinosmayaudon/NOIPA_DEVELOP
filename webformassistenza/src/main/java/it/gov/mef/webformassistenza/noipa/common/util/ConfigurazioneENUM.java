@@ -15,15 +15,6 @@ public enum ConfigurazioneENUM {
 	/** The categoria utenti. */
 	CATEGORIA_UTENTI("categoriautenti"),
 	
-	/** The area. */
-	AREA("area"),
-	
-	/** The tematica. */
-	TEMATICA("tematica"),
-	
-	/** The tipologia. */
-	TIPOLOGIA("tipologia"),
-	
 	/** The home. */
 	HOME("home"),
 	
