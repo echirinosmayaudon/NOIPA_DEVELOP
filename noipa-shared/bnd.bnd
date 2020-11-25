@@ -1,0 +1,37 @@
+Bundle-Name: noipa-shared
+Bundle-SymbolicName: it.gov.mef.shared
+Bundle-Version: 1.0.0
+Import-Package: \
+	*
+Bundle-ClassPath: \
+		.,\
+		lib/gson.jar,\
+		lib/jackson-core.jar,\
+		lib/jackson-databind.jar,\
+		lib/jackson-annotations.jar,\
+		lib/commons-text-1.6.jar,\
+		lib/commons-lang3-3.8.1.jar\
+		
+Export-Package: \
+		com.google.gson,\
+		it.gov.mef.shared.*,\
+		com.fasterxml.jackson.core,\
+		com.fasterxml.jackson.databind,\
+		com.fasterxml.jackson.databind.module,\
+		com.fasterxml.jackson.annotation,\
+		org.apache.commons.text.*,\
+		org.apache.commons.lang3.*\
+		
+-jsp: *.jsp,*.jspf
+-plugin.jsp: com.liferay.ant.bnd.jsp.JspAnalyzerPlugin
+-plugin.resourcebundle: com.liferay.ant.bnd.resource.bundle.ResourceBundleLoaderAnalyzerPlugin
+-plugin.sass: com.liferay.ant.bnd.sass.SassAnalyzerPlugin
+-sass: *
+-includeresource: \
+	lib/gson.jar=gson-2.7.jar,\
+	lib/jackson-core.jar=jackson-core-2.9.8.jar,\
+	lib/jackson-databind.jar=jackson-databind-2.9.8.jar,\
+	lib/jackson-annotations.jar=jackson-annotations-2.9.8.jar,\
+	lib/commons-text.jar=commons-text-1.6.jar,\
+	lib/commons-lang3.jar=commons-lang3-3.8.1.jar\
+

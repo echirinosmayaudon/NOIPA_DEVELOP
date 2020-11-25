@@ -1,0 +1,4 @@
+Tipologia Operatore;tipo_op;tema_op
+Tipologia Amministrato;tipo_ad;tema_ad
+Tipologia Operatore Sanita;tipo_ops;tema_ops
+Tipologia Amministrato Sanita;tipo_ads;tema_ads

@@ -1,0 +1,149 @@
+<div class="float-right">
+	<div id="menuUtente2" class="d-inline-block d-md-none pb-3 white-space-nowrap">
+		<a class="d-block bg-white text-primary rounded-circle pt-2 mt-2 pb-1 px-3" href="#" id="dropdownMenuUtente2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Menu area riservata"><i class="fa fa-user fa-1 d-inline-block pt-0"></i><span class="sr-only">Menu area riservata</span></a>
+		<div class="dropdown-menu m-0 rounded-0 right-0 border-0 shadow p-0" aria-labelledby="dropdownMenuUtente2">
+			<ul class="list-group m-3">
+			  <li><a href="#" class="list-group-item rounded-0 px-3 py-2 border-0"><i class="fa fa-address-card mr-2" aria-hidden="true"></i> Torna all'area risevata</a></li>
+			  <li><a href="#" class="list-group-item rounded-0 px-3 py-2 border-0"><i class="fa fa-sign-out mr-2" aria-hidden="true"></i> Logout</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="float-right">
+	<div id="search-megamenu" class="d-inline-block d-md-none">
+		<a class="d-block text-white pt-2 mt-1 pb-4 px-4" href="#" id="dropdownSearchMegamenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Cerca nel sito"><i class="fa fa-search fa-1x5 d-inline-block pt-0"></i><span class="sr-only">Cerca nel sito</span></a>
+		<div class="dropdown-menu m-0 w-100 rounded-0 right-0 border-0 shadow p-0" aria-labelledby="dropdownSearchMegamenu">
+			<form id="msearch" class="m-0 p-0" action="/search/_gsearch.html" method="post">
+				<div class="position-relative overflow">
+					<input type="text" class="form-control border-0 rounded-0 text-18p w-100 p-4" placeholder="Cerca" aria-label="Recipient's username" aria-describedby="button-addon2a">
+					<button class="btn btn-primary bg-white text-primary border-0 rounded-0 right-0 top-0 position-absolute" type="button" id="button-addon2a"><i class="fa fa-search fa-1x5"></i><span class="sr-only">Cerca</span></button>
+				</div>
+			</form> 
+			
+		</div>
+	</div>
+</div>
+
+<div class="navbar-header">
+	<a class="navbar-toggle collapsed float-left m-0 toggle-menu menu-left jPushMenuBtn" href="#menu" title="Menu"><i class="fa fa-bars fa-1x5 text-white"></i><span class="sr-only">Menu area riservata</span></a>	
+	<div id="logo-small">
+		<a href="/" title="Home page" class=""><img src="${images_folder_noipa}logo-white.png" alt="" class=""></a>
+	</div>
+</div>
+
+<nav class="navbar-collapse bs-navbar-collapse collapse p-0" id="menu" role="navigation">
+	<#--  <h2 class="hide-accessible"><@liferay.language key="navigation" /></h2> -->
+	<h2 class="sr-only">Elementi del menù di navigazione</h2>
+	
+	<ul class="nav navbar-nav w-100 position-relative" id="menPrinc" aria-label="<@liferay.language key="site-pages" />" role="menubar">
+		<#list nav_items as nav_item>
+			<#assign
+				nav_item_attr_has_popup = ""
+				nav_item_attr_selected = ""
+				nav_item_css_class = ""
+				nav_item_layout = nav_item.getLayout()
+			/>
+
+			<#if nav_item.isSelected()>
+				<#assign
+					nav_item_attr_has_popup = "aria-haspopup='true'"
+					nav_item_attr_selected = "aria-selected='true'"
+					nav_item_css_class = "selected"
+				/>
+			</#if>
+
+			
+
+				<#--
+				<a aria-labelledby="layout_${nav_item.getLayoutId()}" ${nav_item_attr_has_popup} href="${nav_item.getURL()}" ${nav_item.getTarget()} role="menuitem"><span><@liferay_theme["layout-icon"] layout=nav_item_layout /> ${nav_item.getName()}</span></a> 
+				<a aria-expanded="false" aria-haspopup="true" href="javascript:void(0)" title="${nav_item.getName()}" class="dropdown-toggle text-white px-4 pt-2 pb-3 mr-4" data-toggle="dropdown">
+					<span>${nav_item.getName()}<i class="fa fa-angle-down font-weight-bold ml-3 pt-2"></i></span>
+				</a>
+				-->
+				
+				<#if nav_item.getName()?contains("Mondo NoiPA")>
+					<li ${nav_item_attr_selected} class="dropdown float-right" id="layout_${nav_item.getLayoutId()}" role="presentation">
+					<a aria-expanded="false" aria-haspopup="true" href="javascript:void(0)" title="${nav_item.getName()}" class="dropdown-toggle text-white px-4 pt-2 pb-3 mr-4" data-toggle="dropdown">
+						<span>${nav_item.getName()}<i class="fa fa-angle-down font-weight-bold ml-3 pt-2"></i></span>
+					</a>
+				<#else>
+					<li ${nav_item_attr_selected} class="yamm-fullwidth dropdown" id="layout_${nav_item.getLayoutId()}" role="presentation">
+					<a aria-expanded="false" aria-haspopup="true" href="javascript:void(0)" title="${nav_item.getName()}" class="dropdown-toggle text-white px-4 pt-2 pb-3 mr-4" data-toggle="dropdown">
+						<span>${nav_item.getName()}<i class="fa fa-angle-down font-weight-bold ml-3 pt-2"></i></span>
+					</a>
+				</#if>
+				
+				<#if nav_item.hasChildren()>
+					<#-- <ul class="child-menu" role="menu"> -->
+					<#if nav_item.getName()?contains("Mondo NoiPA")>
+						<ul class="dropdown-menu rounded-0 border-0 right-0 p-4 child-menu">
+					<#else>
+						<ul class="dropdown-menu mega-menu rounded-0 border-0 w-max-800 child-menu">
+					</#if>
+					<li>
+						<div class="yamm-content">
+							<div class="row">
+								<div class="col-sm-7">
+						<#list nav_item.getChildren() as nav_child>
+							<#assign
+								nav_child_attr_selected = ""
+								nav_child_css_class = ""
+							/>
+
+							<#if nav_item.isSelected()>
+								<#assign
+									nav_child_attr_selected = "aria-selected='true'"
+									nav_child_css_class = "selected"
+								/>
+							</#if>
+<#-- 							<li ${nav_child_attr_selected} class="${nav_child_css_class}" id="layout_${nav_child.getLayoutId()}" role="presentation"> -->
+										<h3 class="text-primary text-24p">${nav_child.getName()}</h3>
+										<#-- <a aria-labelledby="layout_${nav_child.getLayoutId()}" href="${nav_child.getURL()}" ${nav_child.getTarget()} role="menuitem">${nav_child.getName()}</a>  -->
+											<ul class="list-unstyled">
+												<#list nav_child.getChildren() as nav_sub_child>
+												
+													<#assign
+														nav_sub_child_attr_selected = ""
+														nav_sub_child_css_class = ""
+													/>
+						
+													<#if nav_sub_child.isSelected()>
+														<#assign
+															nav_sub_child_attr_selected = "aria-selected='true'"
+															nav_sub_child_css_class = "selected"
+														/>
+													</#if>
+													<li ${nav_sub_child_attr_selected} class="${nav_sub_child_css_class}" id="layout_${nav_sub_child.getLayoutId()}" role="presentation">
+														<a aria-labelledby="layout_${nav_sub_child.getLayoutId()}" href="${nav_sub_child.getURL()}" ${nav_sub_child.getTarget()} role="menuitem">${nav_sub_child.getName()}</a>
+													</li>
+												</#list>
+											</ul>
+						</#list>
+						</div>
+								<#if nav_item.getName()?contains("Servizi")>
+								<div class="col-sm-5">
+									<p class="pt-4">
+										<span class="d-block">Sei un'amministrazione?</span>
+										<a href="#" class="btn btn-default btn-lg d-block mt-2 mb-4">Aderisci</a>
+										<span class="d-block">Sei un ente privato?</span>
+										<a href="#" class="btn btn-default btn-lg d-block mt-2 mb-4">Stipula convenzione</a>
+									<p>
+								</div>
+								</#if>
+						</div>
+						</div>
+						</li>
+					</ul>
+				</#if>
+			</li>
+			
+			
+			
+			
+			
+		</#list>
+	</ul>
+</nav>
+
+<#assign VOID = freeMarkerPortletPreferences.reset()>

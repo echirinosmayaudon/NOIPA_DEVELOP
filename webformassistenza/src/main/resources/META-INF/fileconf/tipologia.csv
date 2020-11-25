@@ -1,0 +1,241 @@
+N;Fiscale;Addizionali
+N;Fiscale;Conguaglio Fiscale e Modello CUD
+N;Fiscale;Detrazioni
+N;Fiscale;Modelli 730
+N;Previdenza;Altro
+N;Previdenza;Certificati medici
+N;Previdenza;Contributi e dichiarazioni CASAGIT
+N;Previdenza;Contributi e dichiarazioni INPGI
+N;Previdenza;Contributi e versamenti
+N;Previdenza;Previdenza complementare
+N;Previdenza;UNIEMENS - Cassa pensione ex INPDAP ex DMA
+N;Previdenza;UNIEMENS - Cassa pensione INPS
+N;Previdenza;UNIEMENS - Disoccupazione
+N;Pensioni;Informazioni
+N;Compensi Vari;Liquidazione
+N;Gestione accessorie;Liquidazione
+N;Stipendi;Applicazioni rinnovi contrattuali
+N;Stipendi;Ritenute fiscali
+N;Stipendi;Tredicesima mensilità
+N;Stipendi;Ritenute extraerariali
+N;Stipendi;Richieste di certificazioni
+N;Stipendi;Arretrati
+N;Stipendi;Assegni
+N;Stipendi;Assegno al nucleo familiare
+N;Stipendi;Detrazioni
+N;Stipendi;MAE
+N;Stipendi;Part-time
+N;Stipendi;Ricostruzioni di carriera
+N;Stipendi;Riduzioni trattamento economico/Posizioni di stato
+N;Self service;730 web
+N;Self service;Richiesta ferie
+N;Self service;Timbrature del giorno
+N;Self service;NoiPAssicura
+N;Self service;Dichiarazione Precompilata
+N;Self service;Contratti scuola a tempo determinato
+N;Self service;Sintesi contributi
+N;Self service;Ottieni SPID
+N;Self service;Altro
+N;Self service;Cartellino mensile
+N;Self service;Detrazioni familiari a carico
+N;Self service;Modalità di riscossione
+N;Self service;Piccolo Prestito
+N;Self service;Previdenza complementare
+N;Self service;Residenza fiscale e/o domicilio
+N;Self service;Richiesta assenze
+N;Sito / Disponibilità applicazioni;Portale NoiPA
+N;Sito / Disponibilità applicazioni;Self Service Stipendiali
+N;Sito / Disponibilità applicazioni;Self Service TM
+N;Sito / Disponibilità documenti;Mancata visualizzazione Cedolino
+N;Sito / Disponibilità documenti;Mancata visualizzazione CUD / 730
+N;Sito / Strumenti di gestione utenza;Portale NoiPA - Password / Dati anagrafici
+N;Sito / Strumenti di gestione utenza;Problemi Autenticazione forte / Smart Card / CNS
+N;Sito / Strumenti di gestione utenza;Reset PIN identificativo
+N;Sito / Strumenti di gestione utenza;Accesso tramite SPID
+N;App NoiPA;Problemi di accesso
+N;App NoiPA;Altro
+N;Fiscale;Accessorie fuori sistema
+N;Fiscale;Addizionali
+N;Fiscale;Altro
+N;Fiscale;Conguaglio Fiscale e Modello CUD
+N;Fiscale;Detrazioni
+N;Fiscale;Modelli 730
+N;Fiscale;Modelli 770
+N;Fiscale;Prestazioni con Ritenuta di Acconto con/senza IVA
+N;Previdenza;Accessori fuori sistema
+N;Previdenza;UNIEMENS - Disoccupazione
+N;Previdenza;Altro
+N;Previdenza;Certificati medici
+N;Previdenza;Contributi e dichiarazioni CASAGIT
+N;Previdenza;Contributi e dichiarazioni INPGI
+N;Previdenza;Contributi e versamenti
+N;Previdenza;Previdenza complementare
+N;Previdenza;UNIEMENS - Cassa pensione ex INPDAP ex DMA
+N;Previdenza;UNIEMENS - Cassa pensione INPS
+N;Contratti scuola;Altro
+N;Contratti scuola;Variazione anagrafiche uffici di servizio
+N;Contratti scuola;Attivazione/riattivazione partita comparto scuola
+N;Contratti scuola;Contratti personale supplente
+N;Contratti scuola;Ferie non fruite personale supplente
+N;Contratti scuola;Indennità di maternità
+N;Contratti scuola;Liquidazione compensi vari
+N;Contratti scuola;Orario ridotto scuola
+N;Contratti scuola;Retrodatazioni
+N;Contratti scuola;Trasferimento personale
+N;Gestione anagrafica;Aggiornamento Dati
+N;Gestione anagrafica;Attivazione pagamenti
+N;Gestione anagrafica;Familiari
+N;Gestione anagrafica;Immatricolazioni
+N;Gestione anagrafica;Rapporti di lavoro
+N;Gestione anagrafica;Trasferimenti
+N;Pensioni;Elenchi partite - Pensioni
+N;Pensioni;Informazioni
+N;Pensioni;Pagamento
+N;Gestione presenze;Altro
+N;Gestione presenze;Configurazione del sistema
+N;Gestione presenze;Gestione badge e personale esterno
+N;Gestione presenze;Part-time
+N;Gestione presenze;Predisposizione/invio flussi economici
+N;Gestione presenze;Presenze ed assenze
+N;Gestione presenze;Timbrature
+N;Compensi vari;Acquisizione Dati
+N;Compensi vari;Altro
+N;Compensi vari;Liquidazione
+N;Gestione accessorie;Acquisizione Dati
+N;Gestione accessorie;Altro
+N;Gestione accessorie;Competenze accessorie fuori sistema
+N;Gestione accessorie;Gestione POS
+N;Gestione accessorie;Gestione sottocompensi e tabellari
+N;Gestione accessorie;Liquidazione
+N;Gestione accessorie;Rubrica Amministrati
+N;Stipendi;Altre Ritenute
+N;Stipendi;Part-time
+N;Stipendi;Ricostruzioni di carriera
+N;Stipendi;Riduzioni trattamento economico/Posizioni di stato
+N;Stipendi;Ritenute fiscali
+N;Stipendi;Ritenute previdenziali
+N;Stipendi;Tredicesima mensilità
+N;Stipendi;Altro
+N;Stipendi;Applicazioni rinnovi contrattuali
+N;Stipendi;Arretrati
+N;Stipendi;Assegni
+N;Stipendi;Assegno al nucleo familiare
+N;Stipendi;Consultazioni di Servizio
+N;Stipendi;Detrazioni
+N;Stipendi;Funzioni MAE
+N;Flussi istituzionali;Altro
+N;Flussi istituzionali;Flussi post emissione
+N;Flussi istituzionali;Flusso Controllo di Gestione
+N;Flussi istituzionali;Flusso IGOP
+N;Flussi istituzionali;Flusso ISTAT
+N;Lavorazioni da Centro;Accessi mensa
+N;Lavorazioni da Centro;Variazione assegni
+N;Lavorazioni da Centro;Variazione qualifica stipendio
+N;Lavorazioni da Centro;Altro
+N;Lavorazioni da Centro;Arretrati una-tantum
+N;Lavorazioni da Centro;Attivazione personale
+N;Lavorazioni da Centro;Imponibile buoni pasto
+N;Lavorazioni da Centro;Istituzione nuovo assegno
+N;Lavorazioni da Centro;Richiesta di adesione al servizio
+N;Lavorazioni da Centro;Ritenuta extraerariale
+N;Lavorazioni da Centro;Ritenute per assenze e ritardi
+N;Gestione fondi;Previdenza complementare
+N;Tematiche di bilancio;Altro
+N;Tematiche di bilancio;Assegnazione dipendenti CdC
+N;Tematiche di bilancio;Capitoli di bilancio
+N;Tematiche di bilancio;Consultazione titoli di spesa
+N;Tematiche di bilancio;Rendicontazione
+N;Applicazioni .Net;Altro
+N;Applicazioni .Net;AssenzeNet
+N;Applicazioni .Net;CreditoNet
+N;Applicazioni .Net;GiudiciNet
+N;Applicazioni .Net;SciopNet
+N;Sito / Disponibilità applicazioni;Altro
+N;Sito / Disponibilità applicazioni;Applicazioni .NET
+N;Sito / Disponibilità applicazioni;Gestione Accessoria
+N;Sito / Disponibilità applicazioni;Gestione Anagrafica
+N;Sito / Disponibilità applicazioni;Gestione Stipendio
+N;Sito / Disponibilità applicazioni;Modelli
+N;Sito / Disponibilità applicazioni;Portale NoiPA
+N;Sito / Disponibilità applicazioni;Self Service Stipendiali
+N;Sito / Strumenti di gestione utenza;Altro
+N;Sito / Strumenti di gestione utenza;AU - Gestione utenze e ruoli
+N;Sito / Strumenti di gestione utenza;CU - Gestione Utenze e Ruoli
+N;Sito / Strumenti di gestione utenza;Portale NoiPA - Password / Dati anagrafici
+N;Sito / Strumenti di gestione utenza;Problemi Autenticazione forte /Smart Card/CNS
+N;Sito / Strumenti di gestione utenza;Problemi di Identità Federata
+N;Sito / Strumenti di gestione utenza;Stipendi - Gestione Utenze e Ruoli
+N;Sito / Strumenti di gestione utenza;Stipendi - Reset codice dispositivo
+N;Sito / Strumenti di gestione utenza;Accesso tramite SPID
+S;Fiscale;Addizionali
+S;Fiscale;Conguaglio Fiscale e Modello CUD
+S;Previdenza;Altro
+S;Pensioni;Informazioni
+S;Stipendi;Arretrati
+S;Stipendi;Assegni
+S;Stipendi;Assegno al nucleo familiare e Detrazioni
+S;Stipendi;Riduzioni trattamento economico/Posizioni di stato
+S;Stipendi;Ritenute fiscali
+S;Stipendi;Tredicesima mensilità
+S;Stipendi;Richieste di certificazioni
+S;Self service;730 web
+S;Self service;Servizio di richiesta assenza
+S;Self service;Servizio di autorizzazione richiesta
+S;Self service;Servizio di cartellino on-line
+S;Self service;Servizio di Stampa cartellino
+S;Self service;Servizio Detrazioni familiari a carico
+S;Self service;Servizio Modalità di riscossione
+S;Self service;Servizio di omessa timbratura
+S;Self service;Servizio Piccolo Prestito
+S;Self service;Servizio Previdenza complementare
+S;Self service;Servizio Residenza fiscale e/o domicilio
+S;Self service;Sintesi contributi
+S;Self service;Ottieni SPID
+S;Sito / Disponibilità applicazioni;Portale NoiPA
+S;Sito / Disponibilità applicazioni;Self Service Stipendiali
+S;Sito / Disponibilità applicazioni;Problemi Accesso
+S;Sito / Disponibilità documenti;Mancata visualizzazione Cedolino
+S;Sito / Disponibilità documenti;Mancata visualizzazione CUD / 730
+S;Sito / Strumenti di gestione utenza;Portale NoiPA - Password / Dati anagrafici
+S;Sito / Strumenti di gestione utenza;Problemi Autenticazione forte / Smart Card / CNS
+S;Sito / Strumenti di gestione utenza;Reset PIN identificativo
+S;Sito / Strumenti di gestione utenza;Accesso tramite SPID
+S;Fiscale;Elaborazione adempimenti fiscali annuali
+S;Previdenza;Elaborazione adempimenti previdenziali
+S;Gestione giuridica;Assegnazione / Revoca incarico
+S;Gestione giuridica;Immatricolazione
+S;Gestione giuridica;Inquadramento giuridico
+S;Gestione giuridica;Progressione di carriera - orizzontale
+S;Gestione giuridica;Progressione di carriera - verticale
+S;Gestione giuridica;Proroga / Rinnovo Contratto
+S;Gestione giuridica;Provvedimenti Disciplinari
+S;Gestione giuridica;Assegnazione Mansioni superiori
+S;Gestione giuridica;Trasformazione rapporto di lavoro 
+S;Gestione giuridica;Attribuzione struttura lavorativa
+S;Gestione giuridica;Esclusività del rapporto di lavoro ed Equiparazione
+S;Gestione giuridica;Gestione aspettative e comandi
+S;Gestione presenze;Assegnazione badge
+S;Gestione presenze;Pianificazione turni e generazione squadre
+S;Gestione presenze;Gestione cartellino - inserimento assenze e/o timbrature
+S;Gestione presenze;Abilitazione causali individuali 
+S;Gestione presenze;Definizione profilo maturazione ferie
+S;Gestione presenze;Abilitazione scheda oraria lavoratore
+S;Gestione presenze;Generaz. voci accessorie - mensa/b.pasto/indennità/straordinario/guardie e straord. in reperibilità
+S;Gestione presenze;Configurazione regole di base - mensa, buoni pasto, indennità, straordinario
+S;Stipendi;Elaborazione definitiva dei cedolini
+S;Stipendi;Elaborazione provvisoria dei cedolini
+S;Stipendi;Gestione modalità di pagamento
+S;Stipendi;Gestione nucleo familiare
+S;Stipendi;Gestione voci ad personam contrattuali e verso terzi
+S;Stipendi;Gestione voci variabili mensili
+S;Flussi istituzionali;Debito informativo periodico
+S;Gestione fondi;Costituzione e aggiornamento del fondo
+S;Sito / Disponibilità applicazioni;Portale NoiPA
+S;Sito / Disponibilità applicazioni;Problemi Accesso
+S;Sito / Disponibilità applicazioni;Self Service Stipendiali
+S;Sito / Disponibilità documenti;Mancata visualizzazione Cedolino
+S;Sito / Disponibilità documenti;Mancata visualizzazione CUD / 730
+S;Sito / Strumenti di gestione utenza;Portale NoiPA - Password / Dati anagrafici
+S;Sito / Strumenti di gestione utenza;Problemi Autenticazione forte / Smart Card / CNS
+S;Sito / Strumenti di gestione utenza;Reset PIN identificativo
+S;Sito / Strumenti di gestione utenza;Accesso tramite SPID

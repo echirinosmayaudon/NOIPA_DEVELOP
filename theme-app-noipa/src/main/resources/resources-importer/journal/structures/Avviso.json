@@ -1,0 +1,54 @@
+{
+    "availableLanguageIds": [
+        "it_IT"
+    ],
+    "defaultLanguageId": "it_IT",
+    "fields": [
+        {
+            "label": {
+                "it_IT": "Titolo Avviso"
+            },
+            "predefinedValue": {
+                "it_IT": ""
+            },
+            "style": {
+                "it_IT": ""
+            },
+            "tip": {
+                "it_IT": ""
+            },
+            "dataType": "string",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "titoloAvviso",
+            "readOnly": false,
+            "repeatable": false,
+            "required": true,
+            "showLabel": true,
+            "type": "text"
+        },
+        {
+            "label": {
+                "it_IT": "Descrizione Avviso"
+            },
+            "predefinedValue": {
+                "it_IT": ""
+            },
+            "style": {
+                "it_IT": ""
+            },
+            "tip": {
+                "it_IT": ""
+            },
+            "dataType": "string",
+            "indexType": "text",
+            "localizable": true,
+            "name": "descrizioneAvviso",
+            "readOnly": false,
+            "repeatable": false,
+            "required": true,
+            "showLabel": true,
+            "type": "textarea"
+        }
+    ]
+}

@@ -1,0 +1,78 @@
+{
+    "availableLanguageIds": [
+        "it_IT"
+    ],
+    "defaultLanguageId": "it_IT",
+    "fields": [
+        {
+            "label": {
+                "it_IT": "Titolo"
+            },
+            "predefinedValue": {
+                "it_IT": ""
+            },
+            "style": {
+                "it_IT": ""
+            },
+            "tip": {
+                "it_IT": ""
+            },
+            "dataType": "string",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "titolo",
+            "readOnly": false,
+            "repeatable": false,
+            "required": true,
+            "showLabel": true,
+            "type": "text"
+        },
+        {
+            "label": {
+                "it_IT": "Abstract"
+            },
+            "predefinedValue": {
+                "it_IT": ""
+            },
+            "style": {
+                "it_IT": ""
+            },
+            "tip": {
+                "it_IT": ""
+            },
+            "dataType": "string",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "abstract",
+            "readOnly": false,
+            "repeatable": false,
+            "required": true,
+            "showLabel": true,
+            "type": "text"
+        },
+        {
+            "label": {
+                "it_IT": "Img"
+            },
+            "predefinedValue": {
+                "it_IT": ""
+            },
+            "style": {
+                "it_IT": ""
+            },
+            "tip": {
+                "it_IT": ""
+            },
+            "dataType": "image",
+            "fieldNamespace": "ddm",
+            "indexType": "text",
+            "localizable": true,
+            "name": "img",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "ddm-image"
+        }
+    ]
+}

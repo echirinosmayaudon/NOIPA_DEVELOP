@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="it.gov.mef.opendata.webformassistenza.model.AssitenzaNoipa">
+		<field name="uuid" type="String" />
+		<field name="assistenzaId" type="long" />
+	</model>
+	<model name="it.gov.mef.opendata.webformassistenza.model.EntiAmministrazione">
+		<field name="uuid" type="String" />
+		<field name="entiId" type="long" />
+	</model>
+</model-hints>

@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE layout-templates PUBLIC "-//Liferay//DTD Layout Templates 7.0.0//EN" "http://www.liferay.com/dtd/liferay-layout-templates_7_0_0.dtd">
+<layout-templates>
+	<custom>
+		<layout-template id="noipa-layout-home-page" name="Home Page NoiPA">
+			<template-path>/layouttpl/custom/noipa-layout-home-page.tpl</template-path>
+			<thumbnail-path>/layouttpl/custom/noipa-layout-app.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="noipa-layout-home-page-dt" name="Home Page NoiPA DT">
+			<template-path>/layouttpl/custom/noipa-layout-home-page-dt.tpl</template-path>
+			<thumbnail-path>/layouttpl/custom/noipa-layout-app.png</thumbnail-path>
+		</layout-template>
+<!-- 		<layout-template id="noipa-layout-app-1" name="Pagina Foglia">
+			<template-path>/layouttpl/custom/noipa-layout-app-1.tpl</template-path>
+			<thumbnail-path>/layouttpl/custom/noipa-layout-app.png</thumbnail-path>
+		</layout-template> -->
+		<layout-template id="noipa-layout-pagina-primo-livello" name="Pagina Primo Livello">
+			<template-path>/layouttpl/custom/noipa-layout-pagina-primo-livello.tpl</template-path>
+			<thumbnail-path>/layouttpl/custom/noipa-layout-app.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="noipa-layout-pagina-secondo-livello" name="Pagina Secondo Livello">
+			<template-path>/layouttpl/custom/noipa-layout-pagina-secondo-livello.tpl</template-path>
+			<thumbnail-path>/layouttpl/custom/noipa-layout-app.png</thumbnail-path>
+		</layout-template>
+<!-- 		<layout-template id="noipa-layout-app-4" name="Pagina 4">
+			<template-path>/layouttpl/custom/noipa-layout-app-4.tpl</template-path>
+			<thumbnail-path>/layouttpl/custom/noipa-layout-app.png</thumbnail-path>
+		</layout-template> -->
+<!-- 		<layout-template id="noipa-layout-app-generico" name="Pagina Generica">
+			<template-path>/layouttpl/custom/noipa-layout-app-generico.tpl</template-path>
+			<thumbnail-path>/layouttpl/custom/noipa-layout-app.png</thumbnail-path>
+		</layout-template> -->
+<!-- 		<layout-template id="noipa-layout-news" name="Pagina News">
+			<template-path>/layouttpl/custom/noipa-layout-news.tpl</template-path>
+			<thumbnail-path>/layouttpl/custom/noipa-layout-app.png</thumbnail-path>
+		</layout-template> -->
+		<layout-template id="noipa-layout-dettaglio-servizio" name="Pagina Dettaglio Servizio">
+			<template-path>/layouttpl/custom/noipa-layout-dettaglio-servizio.tpl</template-path>
+			<thumbnail-path>/layouttpl/custom/noipa-layout-app.png</thumbnail-path>
+		</layout-template>
+<!-- 		<layout-template id="noipa-news-struttura-1" name="NoiPA News Flex">
+			<template-path>/layouttpl/custom/noipa-news-struttura-1.tpl</template-path>
+			<thumbnail-path>/layouttpl/custom/noipa-layout-app.png</thumbnail-path>
+		</layout-template> -->
+		<layout-template id="noipa-news-flex" name="NoiPA News Flex">
+			<template-path>/layouttpl/custom/noipa-news-flex.tpl</template-path>
+			<thumbnail-path>/layouttpl/custom/noipa-layout-app.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="noipa-news-categorie-flex" name="NoiPA News Categorie Flex">
+			<template-path>/layouttpl/custom/noipa-news-categorie-flex.tpl</template-path>
+			<thumbnail-path>/layouttpl/custom/noipa-layout-app.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="noipa-layout-app-masonry" name="NoiPA Masonry">
+			<template-path>/layouttpl/custom/noipa-layout-masonry.tpl</template-path>
+			<thumbnail-path>/layouttpl/custom/noipa-layout-app.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="noipa-layout-container-row" name="NoiPA Container Row">
+			<template-path>/layouttpl/custom/noipa-layout-container-row.tpl</template-path>
+			<thumbnail-path>/layouttpl/custom/noipa-layout-app.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="noipa-layout-row-container-row" name="NoiPA Row Container Row">
+			<template-path>/layouttpl/custom/noipa-layout-row-container-row.tpl</template-path>
+			<thumbnail-path>/layouttpl/custom/noipa-layout-app.png</thumbnail-path>
+		</layout-template>
+		
+		
+		
+		
+<!-- 		<layout-template id="noipa-news-struttura-5" name="Aggregatore Home Page">
+			<template-path>/layouttpl/custom/noipa-layout-app-5.tpl</template-path>
+			<thumbnail-path>/layouttpl/custom/noipa-layout-app.png</thumbnail-path>
+		</layout-template> -->
+
+	</custom>
+</layout-templates>

@@ -1,0 +1,58 @@
+.noipa-margin-1{
+	margin-left: 10px;
+}
+.noipa-margin-2{
+	margin-left: 20px;
+}
+
+.noipa-margin-4{
+	margin-left: 25px;
+}
+.noipa-margin-5{
+	margin-left: 40px;
+}
+.noipa-margin-6{
+	margin-left: 50px;
+}
+	.btm-noipa {
+	    color: #FFFF;
+	}
+	.lexicon-icon {
+    display: inline;
+    fill: black;
+    height: 13px;
+    transform: translateZ(0);
+    vertical-align: super;
+    width: 8px;
+}
+.label-noipa{
+	font-size: 15px;
+}
+
+.taglib-icon-help .lfr-portal-tooltip {
+    position: relative;
+}
+.taglib-icon-help .lfr-portal-tooltip:after {
+    position: absolute;
+    content: "?";
+    top: 0;
+    left: 0;
+    color: white;
+    background-color: #333;
+    display: block;
+    width: 24px;
+    text-align: center;
+    border-radius: 50%;
+    font-weight: 700;
+}
+.taglib-icon-help .lfr-portal-tooltip svg {
+    width: 0;
+    height: 0;
+}
+.noipa-file {
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+    height: inherit;
+    margin: 7px 0;
+} 

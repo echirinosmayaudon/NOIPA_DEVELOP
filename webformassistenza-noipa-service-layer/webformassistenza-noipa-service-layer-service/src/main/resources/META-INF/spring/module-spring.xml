@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<beans
+	default-destroy-method="destroy"
+	default-init-method="afterPropertiesSet"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+>
+	<bean class="it.gov.mef.opendata.webformassistenza.service.impl.AssitenzaNoipaLocalServiceImpl" id="it.gov.mef.opendata.webformassistenza.service.AssitenzaNoipaLocalService" />
+	<bean class="it.gov.mef.opendata.webformassistenza.service.impl.AssitenzaNoipaServiceImpl" id="it.gov.mef.opendata.webformassistenza.service.AssitenzaNoipaService" />
+	<bean class="it.gov.mef.opendata.webformassistenza.service.persistence.impl.AssitenzaNoipaPersistenceImpl" id="it.gov.mef.opendata.webformassistenza.service.persistence.AssitenzaNoipaPersistence" parent="basePersistence" />
+	<bean class="it.gov.mef.opendata.webformassistenza.service.impl.EntiAmministrazioneLocalServiceImpl" id="it.gov.mef.opendata.webformassistenza.service.EntiAmministrazioneLocalService" />
+	<bean class="it.gov.mef.opendata.webformassistenza.service.impl.EntiAmministrazioneServiceImpl" id="it.gov.mef.opendata.webformassistenza.service.EntiAmministrazioneService" />
+	<bean class="it.gov.mef.opendata.webformassistenza.service.persistence.impl.EntiAmministrazionePersistenceImpl" id="it.gov.mef.opendata.webformassistenza.service.persistence.EntiAmministrazionePersistence" parent="basePersistence" />
+</beans>

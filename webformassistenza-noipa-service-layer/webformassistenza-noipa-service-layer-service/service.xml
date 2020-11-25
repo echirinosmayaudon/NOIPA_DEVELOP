@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.0.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_0_0.dtd">
+
+<service-builder package-path="it.gov.mef.opendata.webformassistenza">
+	<namespace>NoiPA</namespace>
+	<!--<entity data-source="sampleDataSource" local-service="true" name="Foo" remote-service="false" session-factory="sampleSessionFactory" table="foo" tx-manager="sampleTransactionManager uuid="true"">-->
+	<entity local-service="true" name="EntiAmministrazione" remote-service="true" uuid="true" human-name="EntiAmministrazione" table="EntiAmministrazione">
+
+		<!-- PK fields -->
+
+		<column name="entiId" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<!-- Audit fields -->
+
+		<!-- Other fields -->
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="entiId" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<!-- References -->
+
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag" package-path="com.liferay.portlet.asset" />
+	</entity>
+	<entity local-service="true" name="AssitenzaNoipa" remote-service="true" uuid="true" human-name="AssitenzaNoipa" table="AssitenzaNoipa">
+
+		<!-- PK fields -->
+
+		<column name="assistenzaId" primary="true" type="long" />
+
+		<!-- Group instance -->
+
+		<!-- Audit fields -->
+
+		<!-- Other fields -->
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="assistenzaId" />
+		</order>
+
+		<!-- Finder methods -->
+
+		<!-- References -->
+
+		<reference entity="AssetEntry" package-path="com.liferay.portlet.asset" />
+		<reference entity="AssetTag" package-path="com.liferay.portlet.asset" />
+	</entity>
+</service-builder>

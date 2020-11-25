@@ -1,0 +1,9 @@
+Bundle-Name: webformassistenza-noipa-service-layer-api
+Bundle-SymbolicName: it.gov.mef.opendata.webformassistenza.api
+Bundle-Version: 1.0.0
+Export-Package: \
+	it.gov.mef.opendata.webformassistenza.exception,\
+	it.gov.mef.opendata.webformassistenza.model,\
+	it.gov.mef.opendata.webformassistenza.service,\
+	it.gov.mef.opendata.webformassistenza.service.persistence
+-includeresource: META-INF/service.xml=../webformassistenza-noipa-service-layer-service/service.xml

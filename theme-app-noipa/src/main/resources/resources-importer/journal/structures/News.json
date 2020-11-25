@@ -1,0 +1,424 @@
+{
+    "availableLanguageIds": [
+        "it_IT",
+        "en_US",
+        "de_DE"
+    ],
+    "defaultLanguageId": "it_IT",
+    "fields": [
+        {
+            "label": {
+                "it_IT": "Titolo News",
+                "en_US": "Titolo News",
+                "de_DE": "Titolo News"
+            },
+            "predefinedValue": {
+                "it_IT": "",
+                "en_US": "",
+                "de_DE": ""
+            },
+            "style": {
+                "it_IT": "",
+                "en_US": "",
+                "de_DE": ""
+            },
+            "tip": {
+                "it_IT": "Inserisci il titolo della news",
+                "en_US": "Inserisci il titolo della news",
+                "de_DE": "Inserisci il titolo della news"
+            },
+            "dataType": "string",
+            "indexType": "text",
+            "localizable": true,
+            "name": "titoloNews",
+            "readOnly": false,
+            "repeatable": false,
+            "required": true,
+            "showLabel": true,
+            "type": "text"
+        },
+        {
+            "label": {
+                "it_IT": "Abstract",
+                "en_US": "Abstract",
+                "de_DE": "Abstract"
+            },
+            "predefinedValue": {
+                "it_IT": "",
+                "en_US": "",
+                "de_DE": ""
+            },
+            "style": {
+                "it_IT": "",
+                "en_US": "",
+                "de_DE": ""
+            },
+            "tip": {
+                "it_IT": "",
+                "en_US": "",
+                "de_DE": ""
+            },
+            "dataType": "string",
+            "indexType": "text",
+            "localizable": true,
+            "name": "abstract",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "textarea"
+        },
+        {
+            "label": {
+                "it_IT": "Immagine",
+                "en_US": "Immagine",
+                "de_DE": "Immagine"
+            },
+            "predefinedValue": {
+                "it_IT": "",
+                "en_US": "",
+                "de_DE": ""
+            },
+            "style": {
+                "it_IT": "",
+                "en_US": "",
+                "de_DE": ""
+            },
+            "tip": {
+                "it_IT": "",
+                "en_US": "",
+                "de_DE": ""
+            },
+            "dataType": "image",
+            "fieldNamespace": "ddm",
+            "indexType": "text",
+            "localizable": true,
+            "name": "immagine",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "ddm-image"
+        },
+        {
+            "label": {
+                "it_IT": "Corpo NewsI niziale",
+                "en_US": "Corpo NewsI niziale",
+                "de_DE": "Corpo NewsI niziale"
+            },
+            "predefinedValue": {
+                "it_IT": "",
+                "en_US": "",
+                "de_DE": ""
+            },
+            "style": {
+                "it_IT": "",
+                "en_US": "",
+                "de_DE": ""
+            },
+            "tip": {
+                "it_IT": "",
+                "en_US": "",
+                "de_DE": ""
+            },
+            "dataType": "string",
+            "indexType": "text",
+            "localizable": true,
+            "name": "corpoNewsIniziale",
+            "readOnly": false,
+            "repeatable": false,
+            "required": true,
+            "showLabel": true,
+            "type": "textarea"
+        },
+        {
+            "label": {
+                "it_IT": "Galleria Immagini",
+                "en_US": "Galleria Immagini",
+                "de_DE": "Galleria Immagini"
+            },
+            "predefinedValue": {
+                "it_IT": "",
+                "en_US": "",
+                "de_DE": ""
+            },
+            "style": {
+                "it_IT": "",
+                "en_US": "",
+                "de_DE": ""
+            },
+            "tip": {
+                "it_IT": "",
+                "en_US": "",
+                "de_DE": ""
+            },
+            "dataType": "image",
+            "fieldNamespace": "ddm",
+            "indexType": "text",
+            "localizable": true,
+            "name": "galleriaImmagini",
+            "readOnly": false,
+            "repeatable": true,
+            "required": false,
+            "showLabel": true,
+            "type": "ddm-image"
+        },
+        {
+            "label": {
+                "it_IT": "Video",
+                "en_US": "Video",
+                "de_DE": "Video"
+            },
+            "predefinedValue": {
+                "it_IT": "",
+                "en_US": "",
+                "de_DE": ""
+            },
+            "style": {
+                "it_IT": "",
+                "en_US": "",
+                "de_DE": ""
+            },
+            "tip": {
+                "it_IT": "In questo campo deve essere inserito il link alla risorsa video (Es. https://youtu.be/NOq29_oca68)",
+                "en_US": "In questo campo deve essere inserito il link alla risorsa video (Es. https://youtu.be/NOq29_oca68)",
+                "de_DE": "In questo campo deve essere inserito il link alla risorsa video (Es. https://youtu.be/NOq29_oca68)"
+            },
+            "dataType": "string",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "Video",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "text",
+            "nestedFields": [
+                {
+                    "label": {
+                        "it_IT": "Didascalia video",
+                        "en_US": "Didascalia video",
+                        "de_DE": "Didascalia video"
+                    },
+                    "predefinedValue": {
+                        "it_IT": "",
+                        "en_US": "",
+                        "de_DE": ""
+                    },
+                    "style": {
+                        "it_IT": "",
+                        "en_US": "",
+                        "de_DE": ""
+                    },
+                    "tip": {
+                        "it_IT": "",
+                        "en_US": "",
+                        "de_DE": ""
+                    },
+                    "dataType": "string",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "didascaliaVideoYou",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "label": {
+                "it_IT": "Link Video",
+                "en_US": "Link Video",
+                "de_DE": "Link Video"
+            },
+            "predefinedValue": {
+                "it_IT": "",
+                "en_US": "",
+                "de_DE": ""
+            },
+            "style": {
+                "it_IT": "",
+                "en_US": "",
+                "de_DE": ""
+            },
+            "tip": {
+                "it_IT": "In questa sezione deve essere inserito il link ad una risorsa video diversa da youtube",
+                "en_US": "In questa sezione deve essere inserito il link ad una risorsa video diversa da youtube",
+                "de_DE": "In questa sezione deve essere inserito il link ad una risorsa video diversa da youtube"
+            },
+            "dataType": "string",
+            "indexType": "text",
+            "localizable": true,
+            "name": "linkVideo",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "text",
+            "nestedFields": [
+                {
+                    "label": {
+                        "it_IT": "Didascalia Video",
+                        "en_US": "Didascalia Video",
+                        "de_DE": "Didascalia Video"
+                    },
+                    "predefinedValue": {
+                        "it_IT": "",
+                        "en_US": "",
+                        "de_DE": ""
+                    },
+                    "style": {
+                        "it_IT": "",
+                        "en_US": "",
+                        "de_DE": ""
+                    },
+                    "tip": {
+                        "it_IT": "",
+                        "en_US": "",
+                        "de_DE": ""
+                    },
+                    "dataType": "string",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "didascaliaVideo",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "label": {
+                "it_IT": "Allegati",
+                "en_US": "Allegati",
+                "de_DE": "Allegati"
+            },
+            "predefinedValue": {
+                "it_IT": "",
+                "en_US": "",
+                "de_DE": ""
+            },
+            "style": {
+                "it_IT": "",
+                "en_US": "",
+                "de_DE": ""
+            },
+            "tip": {
+                "it_IT": "",
+                "en_US": "",
+                "de_DE": ""
+            },
+            "dataType": "document-library",
+            "fieldNamespace": "ddm",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "allegati",
+            "readOnly": false,
+            "repeatable": true,
+            "required": false,
+            "showLabel": true,
+            "type": "ddm-documentlibrary",
+            "nestedFields": [
+                {
+                    "label": {
+                        "it_IT": "Descrizione",
+                        "en_US": "Descrizione",
+                        "de_DE": "Descrizione"
+                    },
+                    "predefinedValue": {
+                        "it_IT": "",
+                        "en_US": "",
+                        "de_DE": ""
+                    },
+                    "style": {
+                        "it_IT": "",
+                        "en_US": "",
+                        "de_DE": ""
+                    },
+                    "tip": {
+                        "it_IT": "",
+                        "en_US": "",
+                        "de_DE": ""
+                    },
+                    "dataType": "string",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "descrizioneAllegato",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "label": {
+                "it_IT": "Link Utili",
+                "en_US": "Link Utili",
+                "de_DE": "Link Utili"
+            },
+            "predefinedValue": {
+                "it_IT": "",
+                "en_US": "",
+                "de_DE": ""
+            },
+            "style": {
+                "it_IT": "",
+                "en_US": "",
+                "de_DE": ""
+            },
+            "tip": {
+                "it_IT": "",
+                "en_US": "",
+                "de_DE": ""
+            },
+            "dataType": "string",
+            "indexType": "text",
+            "localizable": true,
+            "name": "linkUtili",
+            "readOnly": false,
+            "repeatable": true,
+            "required": false,
+            "showLabel": true,
+            "type": "text",
+            "nestedFields": [
+                {
+                    "label": {
+                        "it_IT": "Descrizione Link",
+                        "en_US": "Descrizione Link",
+                        "de_DE": "Descrizione Link"
+                    },
+                    "predefinedValue": {
+                        "it_IT": "",
+                        "en_US": "",
+                        "de_DE": ""
+                    },
+                    "style": {
+                        "it_IT": "",
+                        "en_US": "",
+                        "de_DE": ""
+                    },
+                    "tip": {
+                        "it_IT": "",
+                        "en_US": "",
+                        "de_DE": ""
+                    },
+                    "dataType": "string",
+                    "indexType": "keyword",
+                    "localizable": true,
+                    "name": "descrizioneLink",
+                    "readOnly": false,
+                    "repeatable": false,
+                    "required": false,
+                    "showLabel": true,
+                    "type": "text"
+                }
+            ]
+        }
+    ]
+}

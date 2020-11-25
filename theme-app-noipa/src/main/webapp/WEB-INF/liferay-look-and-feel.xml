@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE look-and-feel PUBLIC "-//Liferay//DTD Look and Feel 7.0.0//EN" "http://www.liferay.com/dtd/liferay-look-and-feel_7_0_0.dtd">
+
+<look-and-feel>
+	<compatibility>
+		<version>7.0.0+</version>
+		<version>7.1.0+</version>
+	</compatibility>
+	<theme id="theme-app-noipa" name="theme-app-noipa">
+		<template-extension>ftl</template-extension>
+		<portlet-decorator id="barebone" name="Barebone">
+			<default-portlet-decorator>true</default-portlet-decorator>
+			<portlet-decorator-css-class>portlet-barebone</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="borderless" name="Borderless">
+			<portlet-decorator-css-class>portlet-borderless</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="decorate" name="Decorate">
+			<portlet-decorator-css-class>portlet-decorate</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="noipasearch" name="NoiPa Ricerca">
+			<portlet-decorator-css-class>portlet-noipasearch</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="webContentIntestazione" name="Web content con intestazione">
+			<portlet-decorator-css-class>web-content-intestazione</portlet-decorator-css-class>
+		</portlet-decorator>
+		<portlet-decorator id="portletNonIntestazione" name="Portlet senza intestazione">
+			<portlet-decorator-css-class>portlet-non-intestazione</portlet-decorator-css-class>
+		</portlet-decorator>
+	</theme>
+</look-and-feel>
