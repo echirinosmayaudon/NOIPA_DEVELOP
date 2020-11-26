@@ -41,7 +41,7 @@ public class ScaricaCSVResourceCommand implements MVCResourceCommand{
 	@Override
 	public boolean serveResource(ResourceRequest resourceRequest, ResourceResponse resourceResponse)
 			throws PortletException {
-
+ 
 
 		PortletSession session = resourceRequest.getPortletSession();
 		String typeConfig=ParamUtil.get(resourceRequest, "typeConfig", "");
@@ -56,7 +56,7 @@ public class ScaricaCSVResourceCommand implements MVCResourceCommand{
 			
 			resourceResponse.setContentType("text/csv");
 			
-			resourceResponse.addProperty("Content-Disposition", String.format("attachment;filename=\"%s_%s.csv\"",date.format(new Date()),"Config"));
+			resourceResponse.addProperty("Content-Disposition", String.format("attachment;filename=\"%s_%s.csv\"","Config",date.format(new Date())));
 			
 			String separatore = ";";
 			
@@ -67,7 +67,6 @@ public class ScaricaCSVResourceCommand implements MVCResourceCommand{
 			String[] intestazione=intestazioneCsv.split(separatore);
 			
 			writer.write(new String(tmp,"UTF-8"));
-			writer.write("\n");
 			//Scrivo il jsonarray in csv
 			String s="";
 			//Cicle righe
@@ -85,10 +84,10 @@ public class ScaricaCSVResourceCommand implements MVCResourceCommand{
 					 }	
 					
 				 }
-				tmp = s.getBytes("UTF-8");
-				writer.write(new String(tmp,"UTF-8"));
-				writer.write("\n");
+				 tmp = s.getBytes("UTF-8");
 			}
+			writer.write(new String(tmp,"UTF-8"));
+			writer.write("\n");
 			writer.flush();
 			writer.close();
 		} catch (IOException e) {
