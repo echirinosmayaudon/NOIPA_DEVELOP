@@ -5,30 +5,216 @@
 </p>
 
 <script type="text/javascript">
-var entiAmministrato = 
-	[ {"ente": "Ente 1","tipo":"N","codice":"1"},
-	{"ente": "Ente 2","tipo":"N","codice":"2"},
-	{"ente": "Ente 3","tipo":"N","codice":"3"},
-	{"ente": "Ente 4","tipo":"N","codice":"4"},
-	{"ente": "Ente 5","tipo":"N","codice":"5"},
-	{"ente": "Ente 6","tipo":"N","codice":"6"},
-	{"ente": "Ente 7","tipo":"N","codice":"7"},
-	{"ente": "Ente 8","tipo":"N","codice":"8"},
-	{"ente": "Ente 9","tipo":"N","codice":"9"},
-	{"ente": "Ente 10","tipo":"N","codice":"10"},
-	{"ente": "Ente 11","tipo":"N","codice":"11"},
-	{"ente": "Ente 12","tipo":"N","codice":"12"},
-	{"ente": "Ente 12","tipo":"N","codice":"12"},
-	{"ente": "Ente 14","tipo":"N","codice":"14"},
-	{"ente": "Ente 15","tipo":"N","codice":"15"},
-	{"ente": "Ente 16","tipo":"N","codice":"16"},
-	{"ente": "Ente 17","tipo":"S","codice":"17"},
-	{"ente": "Ente 18","tipo":"S","codice":"18"},
-	{"ente": "Ente 18","tipo":"S","codice":"18"},
-	{"ente": "Ente 20","tipo":"S","codice":"20"}]; 
-var entiMVP = [ {"ente": "Altro","tipo":"N","codice":"1"}];
-var entiAreaPensioni = [ {"ente": "Altro","tipo":"N","codice":"1"}];
-var entiCreditori = [ {"ente": "Altro","tipo":"N","codice":"1"}];
+
+var data =  [
+	   {
+	      "AreaPensioni":"N",
+	      "EntiCreditori":"N",
+	      "Tipo":"N",
+	      "MVP":"N",
+	      "Amministrato":"S",
+	      "Ente":"Ente 1",
+	      "Codice":"1"
+	   },
+	   {
+	      "AreaPensioni":"N",
+	      "EntiCreditori":"N",
+	      "Tipo":"N",
+	      "MVP":"N",
+	      "Amministrato":"S",
+	      "Ente":"Ente 2",
+	      "Codice":"2"
+	   },
+	   {
+	      "AreaPensioni":"N",
+	      "EntiCreditori":"N",
+	      "Tipo":"N",
+	      "MVP":"N",
+	      "Amministrato":"S",
+	      "Ente":"Ente 3",
+	      "Codice":"3"
+	   },
+	   {
+	      "AreaPensioni":"N",
+	      "EntiCreditori":"N",
+	      "Tipo":"N",
+	      "MVP":"N",
+	      "Amministrato":"S",
+	      "Ente":"Ente 4",
+	      "Codice":"4"
+	   },
+	   {
+	      "AreaPensioni":"N",
+	      "EntiCreditori":"N",
+	      "Tipo":"N",
+	      "MVP":"N",
+	      "Amministrato":"S",
+	      "Ente":"Ente 5",
+	      "Codice":"5"
+	   },
+	   {
+	      "AreaPensioni":"N",
+	      "EntiCreditori":"N",
+	      "Tipo":"N",
+	      "MVP":"N",
+	      "Amministrato":"S",
+	      "Ente":"Ente 6",
+	      "Codice":"6"
+	   },
+	   {
+	      "AreaPensioni":"N",
+	      "EntiCreditori":"N",
+	      "Tipo":"N",
+	      "MVP":"N",
+	      "Amministrato":"S",
+	      "Ente":"Ente 7",
+	      "Codice":"7"
+	   },
+	   {
+	      "AreaPensioni":"N",
+	      "EntiCreditori":"N",
+	      "Tipo":"N",
+	      "MVP":"N",
+	      "Amministrato":"S",
+	      "Ente":"Ente 8",
+	      "Codice":"8"
+	   },
+	   {
+	      "AreaPensioni":"N",
+	      "EntiCreditori":"N",
+	      "Tipo":"N",
+	      "MVP":"N",
+	      "Amministrato":"S",
+	      "Ente":"Ente 9",
+	      "Codice":"9"
+	   },
+	   {
+	      "AreaPensioni":"N",
+	      "EntiCreditori":"N",
+	      "Tipo":"N",
+	      "MVP":"N",
+	      "Amministrato":"S",
+	      "Ente":"Ente 10",
+	      "Codice":"10"
+	   },
+	   {
+	      "AreaPensioni":"N",
+	      "EntiCreditori":"N",
+	      "Tipo":"N",
+	      "MVP":"N",
+	      "Amministrato":"S",
+	      "Ente":"Ente 11",
+	      "Codice":"11"
+	   },
+	   {
+	      "AreaPensioni":"N",
+	      "EntiCreditori":"N",
+	      "Tipo":"N",
+	      "MVP":"N",
+	      "Amministrato":"S",
+	      "Ente":"Ente 12",
+	      "Codice":"12"
+	   },
+	   {
+	      "AreaPensioni":"N",
+	      "EntiCreditori":"N",
+	      "Tipo":"N",
+	      "MVP":"N",
+	      "Amministrato":"S",
+	      "Ente":"Ente 12",
+	      "Codice":"12"
+	   },
+	   {
+	      "AreaPensioni":"N",
+	      "EntiCreditori":"N",
+	      "Tipo":"N",
+	      "MVP":"N",
+	      "Amministrato":"S",
+	      "Ente":"Ente 14",
+	      "Codice":"14"
+	   },
+	   {
+	      "AreaPensioni":"N",
+	      "EntiCreditori":"N",
+	      "Tipo":"N",
+	      "MVP":"N",
+	      "Amministrato":"S",
+	      "Ente":"Ente 15",
+	      "Codice":"15"
+	   },
+	   {
+	      "AreaPensioni":"N",
+	      "EntiCreditori":"N",
+	      "Tipo":"N",
+	      "MVP":"N",
+	      "Amministrato":"S",
+	      "Ente":"Ente 16",
+	      "Codice":"16"
+	   },
+	   {
+	      "AreaPensioni":"N",
+	      "EntiCreditori":"N",
+	      "Tipo":"S",
+	      "MVP":"N",
+	      "Amministrato":"S",
+	      "Ente":"Ente 17",
+	      "Codice":"17"
+	   },
+	   {
+	      "AreaPensioni":"N",
+	      "EntiCreditori":"N",
+	      "Tipo":"S",
+	      "MVP":"N",
+	      "Amministrato":"S",
+	      "Ente":"Ente 18",
+	      "Codice":"18"
+	   },
+	   {
+	      "AreaPensioni":"N",
+	      "EntiCreditori":"N",
+	      "Tipo":"S",
+	      "MVP":"N",
+	      "Amministrato":"S",
+	      "Ente":"Ente 19",
+	      "Codice":"19"
+	   },
+	   {
+	      "AreaPensioni":"N",
+	      "EntiCreditori":"N",
+	      "Tipo":"S",
+	      "MVP":"N",
+	      "Amministrato":"S",
+	      "Ente":"Ente 20",
+	      "Codice":"20"
+	   },
+	   {
+	      "AreaPensioni":"N",
+	      "EntiCreditori":"N",
+	      "Tipo":"N",
+	      "MVP":"S",
+	      "Amministrato":"N",
+	      "Ente":"Altro",
+	      "Codice":"1"
+	   },
+	   {
+	      "AreaPensioni":"S",
+	      "EntiCreditori":"N",
+	      "Tipo":"N",
+	      "MVP":"N",
+	      "Amministrato":"N",
+	      "Ente":"Altro",
+	      "Codice":"1"
+	   },
+	   {
+	      "AreaPensioni":"N",
+	      "EntiCreditori":"S",
+	      "Tipo":"N",
+	      "MVP":"N",
+	      "Amministrato":"N",
+	      "Ente":"Altro",
+	      "Codice":"1"
+	   }
+	];
 
 var tipologie = [
 
@@ -99,7 +285,7 @@ var tipologie = [
 </script>
 	
 	<aui:form>
-		<aui:input name="tipo" type="text" value="MVP"/>
+		<aui:input name="tipo" type="text" value="Amministrato"/>
 		<aui:input name="flag" type="text"/>
 		<aui:input name="enteVal" type="text"/>
 		<br/><br/>
@@ -127,21 +313,19 @@ var tipologie = [
 	
 	
 	
-	function loadComboEnte(data){
+	function loadComboEnte(ente){
 		comboz = $("#<portlet:namespace/>ente");
 		comboz.empty();
         comboz.append("<option/>");
          
-        $.each(data, function(i, item) {    
-        	$option = $("<option/>").attr("value", item.tipo+"-"+item.codice).text(item.ente);
+        $.each(ente, function(i, item) {    
+        	$option = $("<option/>").attr("value", item.Tipo+"-"+item.Codice).text(item.Ente);
         	comboz.append($option);
         });
         
         if(data.length==1){
         	$($("#<portlet:namespace/>ente").find('option')[1]).attr("selected","selected");
-        	
         	$("#<portlet:namespace/>ente" ).trigger( "change" );
-
         }	 	
 	}
 	
@@ -297,6 +481,7 @@ function loadComboTl(){
         	loadComboCategoria();        	        	        	
         }
     });
+    
     $('#<portlet:namespace/>categoria').bind("change", function (event) { 
         resetComboz(['pl','sl','tl']);
         if(_xval){        	        
@@ -322,12 +507,33 @@ function loadComboTl(){
 	AUI().ready(
 		function(){
 		
-			_type = $("#<portlet:namespace/>tipo").val();
+		_type = $("#<portlet:namespace/>tipo").val();
+
+			if( _type == "Amministrato") {
+			 var ente = data.filter(x => x.Amministrato == "S");
+       console.log(ente);
+			 loadComboEnte(ente)
+			}; 
+      
+			if( _type == "MVP"){
+			 var ente = data.filter(x => x.MVP == "S");
+       console.log(ente);
+       loadComboEnte(ente)
 			
-			if(_type=="Amministrato"){loadComboEnte(entiAmministrato);}
-			if(_type=="MVP"){loadComboEnte(entiMVP);}
-			if(_type=="Area Pensioni"){loadComboEnte(entiAreaPensioni);}
-			if(_type=="Enti creditori"){loadComboEnte(entiCreditori);}
+			};
+      
+			if( _type == "AreaPensioni") {
+			 var ente = data.filter(x => x.AreaPensioni == "S");
+       console.log(ente);
+			 loadComboEnte(ente)
+			};
+      
+			if( _type == "EntiCreditori") {
+			 var ente = data.filter(x => x.EntiCreditori == "S");
+       console.log(ente);
+			 loadComboEnte(ente)
+			}
+		
 		});
 		
 		
