@@ -15,10 +15,8 @@ import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.Validator;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -36,6 +34,7 @@ import org.osgi.service.component.annotations.Modified;
 
 import it.gov.mef.webformassistenza.noipa.common.util.NoiPAWebAssistenzaUtils;
 import it.gov.mef.webformassistenza.noipa.configuration.WebFormAssistenzaConfiguration;
+import it.gov.mef.webformassistenza.noipa.constants.WebformassistenzaPortletKeys;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -55,7 +54,7 @@ public class WebFormAssistenzaConfigurationAction extends DefaultConfigurationAc
 	
 	/** The log. */
 	private static Log _log = LogFactoryUtil.getLog(WebFormAssistenzaConfigurationAction.class);
-	
+	private static String headerFile="";
 
 	
 	/**
@@ -170,45 +169,33 @@ public class WebFormAssistenzaConfigurationAction extends DefaultConfigurationAc
 	 * @param actionResponse
 	 * @param noipa_type_config
 	 */
-	private void getConfigCsv1(PortletConfig portletConfig, ActionRequest actionRequest,ActionResponse actionResponse, String noipa_type_config) throws FileNotFoundException, IOException {
+	private void getConfigCsvAmministrazioni(PortletConfig portletConfig, ActionRequest actionRequest,ActionResponse actionResponse, String noipa_type_config) throws FileNotFoundException, IOException {
 		UploadPortletRequest uploadRequest = PortalUtil.getUploadPortletRequest(actionRequest);
 		long sizeFile = uploadRequest.getSize("fileConfigCSV");
-		JSONArray jsonArray = JSONFactoryUtil.createJSONArray();
+		JSONArray jsonArrayAmministrazioni = JSONFactoryUtil.createJSONArray();
         
 		if (sizeFile==0) {
             SessionErrors.add(actionRequest, "error");
         } else {
+            //String sourceFileName = uploadRequest.getFileName("fileConfigCSV");
+            File csvAmministrazioni = uploadRequest.getFile("fileConfigCSV");
+            
+		       //Chiamata new metodo
+            jsonArrayAmministrazioni=readFileCsv(csvAmministrazioni);
+            
+            //Set della costante header per i files Amministrazioni csv
+             WebformassistenzaPortletKeys.AmministrazioniCSVheader=headerFile;
         
-        	
-        	
-            String sourceFileName = uploadRequest.getFileName("fileConfigCSV");
-            File file = uploadRequest.getFile("fileConfigCSV");
-            
-            
-            _log.info("sourceFileName: "+sourceFileName);
-            _log.info("sizeFile: "+sizeFile);
-            _log.info("file: "+file.toPath());
-            
-            
-           
-            		
-            	//Chiamata new metodo
-            	readFileCsv(file);
-        
-              //_log.info("Csv1 size ="+righeCsv.size());
-              
-              
-              
-              
-              
+              _log.info("jsonArray ="+jsonArrayAmministrazioni.toJSONString());  
         }
-		String json = jsonArray.toJSONString();
+		String json = jsonArrayAmministrazioni.toJSONString();
 		
+		//_log.info("json: "+json);
 		
 		if( Validator.isNotNull(json) && json.length()>2)
-			setPreference(actionRequest, "linkAmministrazione",json);
+			setPreference(actionRequest, "listaAmministrazioni",json);
 		else 
-			setPreference(actionRequest, "linkAmministrazione", "");
+			setPreference(actionRequest, "listaAmministrazioni", "");
 		
 		
 	}
@@ -231,42 +218,41 @@ public class WebFormAssistenzaConfigurationAction extends DefaultConfigurationAc
 	 * @param actionResponse
 	 * @param noipa_type_config
 	 */	
-	private void getConfigCsv2(PortletConfig portletConfig, ActionRequest actionRequest,ActionResponse actionResponse, String noipa_type_config) throws FileNotFoundException, IOException {
+	private void getConfigCsvTipologie(PortletConfig portletConfig, ActionRequest actionRequest,ActionResponse actionResponse, String noipa_type_config) throws FileNotFoundException, IOException {
 		UploadPortletRequest uploadRequestCat = PortalUtil.getUploadPortletRequest(actionRequest);
-		long sizeFileCat = uploadRequestCat.getSize("fileConfigCSV");
-		JSONArray jsonArray_cat = JSONFactoryUtil.createJSONArray();
-        if (sizeFileCat==0) {
+		long sizeFile = uploadRequestCat.getSize("fileConfigCSV");
+		JSONArray jsonArrayTipologie = JSONFactoryUtil.createJSONArray();
+        if (sizeFile==0) {
             SessionErrors.add(actionRequest, "error");
-        } else {
-        	
-            String sourceFileName = uploadRequestCat.getFileName("fileConfigCSV");
-            File file = uploadRequestCat.getFile("fileConfigCSV");
+        } else {	
+            //String sourceFileName = uploadRequestCat.getFileName("fileConfigCSV");
+            File csvTipologie = uploadRequestCat.getFile("fileConfigCSV");
             
+            jsonArrayTipologie=readFileCsv(csvTipologie);  
             
-            _log.info("sourceFileName: "+sourceFileName);
-            _log.info("sizeFile: "+sizeFileCat);
-            _log.info("file: "+file.toPath());
-           
-        	_log.info("Cv2 size ="+jsonArray_cat.length());
+            //Set della costante header per i files Tipologie csv per renderlo dinamico
+            WebformassistenzaPortletKeys.TipologieCSVheader=headerFile;
+       
         }
-		String json_cat = jsonArray_cat.toJSONString();
-		if( Validator.isNotNull(json_cat) && json_cat.length()>2)
-			setPreference(actionRequest, "listaCategoriaUtenti",json_cat);
+			String json = jsonArrayTipologie.toJSONString();		
+		//_log.info("json: "+json);
+		if( Validator.isNotNull(json) && json.length()>2)
+			setPreference(actionRequest, "listaTipologie",json);
 		else 
-			setPreference(actionRequest, "listaCategoriaUtenti", "");
+			setPreference(actionRequest, "listaTipologie", "");
 	}
 	
-	/*
-	 *Metodo generico per leggere i files csv e trasformarlo in JSONArray  
-	 * 
-	 */
+	//Metodo che converte un file java csv in un JSONArray
 	private JSONArray readFileCsv(File fileCsv) throws IOException {
-
+		JSONArray jsonArray=JSONFactoryUtil.createJSONArray();
+		
 		 List<String> listaRigheCsv=ListUtil.fromFile(fileCsv);
 		 
 		 if(ListUtil.isNotEmpty(listaRigheCsv) && ListUtil.isNotNull(listaRigheCsv)) {
 			 
-			 //Intestazione 
+			 //variabile headerFile per mantenere l'intestazione del file csv corrente
+			 headerFile=listaRigheCsv.get(0);
+			 
 			 String[] intestazioneFile=listaRigheCsv.get(0).split(";");
 			 
 			 //Eliminando l'intestazione dalla lista delle righe del file
@@ -274,7 +260,6 @@ public class WebFormAssistenzaConfigurationAction extends DefaultConfigurationAc
 		 
 			 //Ciclo delle righe del file
 			 for (String riga : listaRigheCsv) {
-				
 				 JSONObject jsonObject=JSONFactoryUtil.createJSONObject();
 				 
 				 String[] listaCelle=riga.split(";");
@@ -283,15 +268,11 @@ public class WebFormAssistenzaConfigurationAction extends DefaultConfigurationAc
 				 for(int index=0;index<intestazioneFile.length;index++) {
 					 jsonObject.put(intestazioneFile[index], listaCelle[index]);
 				 }
-				 
-				_log.info("Json:"+jsonObject.toJSONString());
-				 
+				 jsonArray.put(jsonObject);
 			}
 		 }
-		return null;
+		return jsonArray;
 	}
-	
-	
 	
     /* (non-Javadoc)
      * @see com.liferay.portal.kernel.portlet.SettingsConfigurationAction#processAction(javax.portlet.PortletConfig, javax.portlet.ActionRequest, javax.portlet.ActionResponse)
@@ -311,11 +292,11 @@ public class WebFormAssistenzaConfigurationAction extends DefaultConfigurationAc
     	case "mailconfig":
     		getMail(portletConfig, actionRequest, actionResponse, noipa_type_config);
     		break;
-		case "configCsv1":
-			this.getConfigCsv1(portletConfig, actionRequest, actionResponse, noipa_type_config);
+		case "csvAmministrazioni":
+			this.getConfigCsvAmministrazioni(portletConfig, actionRequest, actionResponse, noipa_type_config);
 			break;
-		case "configCsv2":
-			this.getConfigCsv1(portletConfig, actionRequest, actionResponse, noipa_type_config);			
+		case "csvTipologie":
+			this.getConfigCsvTipologie(portletConfig, actionRequest, actionResponse, noipa_type_config);			
 			break;
 		}
     	NoiPAWebAssistenzaUtils.hiddenDefaultMessage(actionRequest);

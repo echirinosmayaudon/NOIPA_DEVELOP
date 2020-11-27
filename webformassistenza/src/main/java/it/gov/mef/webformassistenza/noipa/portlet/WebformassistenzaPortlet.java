@@ -690,9 +690,9 @@ public class WebformassistenzaPortlet extends MVCPortlet {
 		PortletPreferences preferences = portletRequest.getPreferences();
 		
 		Map<String,String> enti = new HashMap<String,String>();
-		String linkAmministrazione = preferences.getValue("linkAmministrazione", _exampleConfiguration.linkAmministrazione());
+		String listaAmministrazioni = preferences.getValue("listaAmministrazioni", _exampleConfiguration.listaAmministrazioni());
 		try {
-			JSONArray jsonArray = JSONFactoryUtil.createJSONArray(linkAmministrazione);
+			JSONArray jsonArray = JSONFactoryUtil.createJSONArray(listaAmministrazioni);
 	    	int length = jsonArray.length();
 	    	for(int i = 0; i<length; i++){
 	    		JSONObject jsonObject = jsonArray.getJSONObject(i);

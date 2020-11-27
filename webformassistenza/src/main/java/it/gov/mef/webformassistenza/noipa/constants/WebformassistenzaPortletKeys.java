@@ -20,6 +20,9 @@ public class WebformassistenzaPortletKeys {
 	/** The Constant WebformassistenzaNamecheck. */
 	public static final String WebformassistenzaNamecheck = "NoiPA - Web Form Assistenza Verifica"; 	
 	
+	/** Intestazioni dei files csv */
+	public static String AmministrazioniCSVheader = "Amministrazione;Tipo;Codice;Amministrato;MVP;AreaPensioni;EntiCreditori";
+	public static String TipologieCSVheader = "Sezione;Sanita;Area;Tematica;Tipo di problema;Categoria utente";
 	
 
 }

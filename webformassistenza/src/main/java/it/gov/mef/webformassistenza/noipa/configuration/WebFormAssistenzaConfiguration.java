@@ -18,7 +18,7 @@ public interface WebFormAssistenzaConfiguration {
      * @return the string
      */
     @Meta.AD(required = false)
-    public String linkAmministrazione();
+    public String listaAmministrazioni();
 
     /**
      * Lista categoria utenti.
@@ -26,7 +26,7 @@ public interface WebFormAssistenzaConfiguration {
      * @return the string
      */
     @Meta.AD(required = false)
-    public String listaCategoriaUtenti();
+    public String listaTipologie();
     
     /**
      * Mailconfig mail.
