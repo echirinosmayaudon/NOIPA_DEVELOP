@@ -1,64 +1,66 @@
 Sezione;Sanita;Area;Tematica;Tipo di problema;Categoria utente
-Amministrato;S;Accesso e Gestione Utenze ;Primo accesso;Primo accesso;Amministrato Sanità
-Amministrato;S;Accesso e Gestione Utenze ;Reset password;Reset password;Amministrato Sanità
-Amministrato;S;Accesso e Gestione Utenze ;Reset PIN;Reset PIN;Amministrato Sanità
-Amministrato;S;Servizi stipendiali;Voci e compensi accessori;Voci e compensi accessori;Amministrato Sanità
-Amministrato;S;Servizi stipendiali;Accessorie fuori sistema ;Accessorie fuori sistema ;Amministrato Sanità
-Amministrato;S;Servizi stipendiali;Fiscale ;Certificazione Unica;Amministrato Sanità
-Amministrato;S;Servizi stipendiali;Fiscale ;Dichiarazioni, ritenute e conguagli fiscali;Amministrato Sanità
-Amministrato;S;Servizi stipendiali;Previdenziale ;Contributi, dichiarazioni, conguagli e versamenti previdenziali;Amministrato Sanità
-Amministrato;S;Servizi stipendiali;Previdenziale ;Previdenza complementare;Amministrato Sanità
-Amministrato;S;Servizi stipendiali;Altre ritenute;Altre ritenute;Amministrato Sanità
-Amministrato;S;Servizi stipendiali;Applicazione rinnovi contrattuali;Applicazione rinnovi contrattuali;Amministrato Sanità
-Amministrato;S;Servizi stipendiali;Servizi per il Comparto Scuola ;Pagamenti e contratti personale docente non di ruolo;Amministrato Sanità
-Amministrato;S;Servizi stipendiali;Consultazione Cedolino e CU;Consultazione Cedolino e CU;Amministrato Sanità
-Amministrato;S;Servizi stipendiali;Segnalazione mancato accredito;Segnalazione mancato accredito;Amministrato Sanità
-Amministrato;S;Servizi stipendiali;Altro;Altro;Amministrato Sanità
-Amministrato;S;Assistenza alle funzionalità online;Servizi anagrafici;Gestione residenza fiscale e domicilio;Amministrato Sanità
-Amministrato;S;Assistenza alle funzionalità online;Servizi stipendiali;Gestione modalità di riscossione;Amministrato Sanità
-Amministrato;S;Assistenza alle funzionalità online;Servizi stipendiali;Gestione Bonus IRPEF DL 66/2014;Amministrato Sanità
-Amministrato;S;Assistenza alle funzionalità online;Servizi stipendiali;Gestione detrazioni familiari a carico;Amministrato Sanità
-Amministrato;S;Assistenza alle funzionalità online;Servizi di rilevazione presenze;Visualizzazione cartellino;Amministrato Sanità
-Amministrato;S;Assistenza alle funzionalità online;Servizi di rilevazione presenze;Gestione autorizzazioni straordinario;Amministrato Sanità
-Amministrato;S;Assistenza alle funzionalità online;Servizi di rilevazione presenze;Visualizzazione turni;Amministrato Sanità
-Amministrato;S;Assistenza alle funzionalità online;Servizi di rilevazione presenze;Gestione eccedenza;Amministrato Sanità
-Amministrato;S;Assistenza alle funzionalità online;Servizi di rilevazione presenze;Gestione timbrature;Amministrato Sanità
-Amministrato;S;Assistenza alle funzionalità online;Servizi di rilevazione presenze;Gestione assenze e permessi;Amministrato Sanità
-Amministrato;S;Assistenza alle funzionalità online;Servizi di rilevazione presenze;Gestione ferie e festività soppresse;Amministrato Sanità
-Amministrato;S;Assistenza alle funzionalità online;Previdenza ;Gestione previdenza complementare;Amministrato Sanità
-Amministrato;S;Assistenza alle funzionalità online;Previdenza ;Cruscotto previdenziale;Amministrato Sanità
-Amministrato;S;Assistenza alle funzionalità online;Prestiti e Convenzioni;NoiPAssicura;Amministrato Sanità
-Amministrato;S;App NoiPA;Supporto Tecnico;Supporto Tecnico;Amministrato Sanità
-Amministrato;N;Accesso e Gestione Utenze ;Primo accesso;Primo accesso;Amministrato
-Amministrato;N;Accesso e Gestione Utenze ;Reset password;Reset password;Amministrato
-Amministrato;N;Accesso e Gestione Utenze ;Reset PIN;Reset PIN;Amministrato
-Amministrato;N;Servizi stipendiali;Voci e compensi accessori;Voci e compensi accessori;Amministrato
-Amministrato;N;Servizi stipendiali;Accessorie fuori sistema ;Accessorie fuori sistema ;Amministrato
-Amministrato;N;Servizi stipendiali;Fiscale ;Certificazione Unica;Amministrato
-Amministrato;N;Servizi stipendiali;Fiscale ;Dichiarazioni, ritenute e conguagli fiscali;Amministrato
-Amministrato;N;Servizi stipendiali;Previdenziale ;Contributi, dichiarazioni, conguagli e versamenti previdenziali;Amministrato
-Amministrato;N;Servizi stipendiali;Previdenziale ;Previdenza complementare;Amministrato
-Amministrato;N;Servizi stipendiali;Altre ritenute;Altre ritenute;Amministrato
-Amministrato;N;Servizi stipendiali;Applicazione rinnovi contrattuali;Applicazione rinnovi contrattuali;Amministrato
-Amministrato;N;Servizi stipendiali;Servizi per il Comparto Scuola ;Pagamenti e contratti personale docente non di ruolo;Amministrato
-Amministrato;N;Servizi stipendiali;Consultazione Cedolino e CU;Consultazione Cedolino e CU;Amministrato
-Amministrato;N;Servizi stipendiali;Segnalazione mancato accredito;Segnalazione mancato accredito;Amministrato
-Amministrato;N;Servizi stipendiali;Altro;Altro;Amministrato
-Amministrato;N;Assistenza alle funzionalità online;Servizi anagrafici;Gestione residenza fiscale e domicilio;Amministrato
-Amministrato;N;Assistenza alle funzionalità online;Servizi stipendiali;Gestione modalità di riscossione;Amministrato
-Amministrato;N;Assistenza alle funzionalità online;Servizi stipendiali;Gestione Bonus IRPEF DL 66/2014;Amministrato
-Amministrato;N;Assistenza alle funzionalità online;Servizi stipendiali;Gestione detrazioni familiari a carico;Amministrato
-Amministrato;N;Assistenza alle funzionalità online;Servizi per il Comparto Scuola ;Self Service di Visualizzazione contratti scuola;Amministrato
-Amministrato;N;Assistenza alle funzionalità online;Servizi di rilevazione presenze;Visualizzazione cartellino;Amministrato
-Amministrato;N;Assistenza alle funzionalità online;Servizi di rilevazione presenze;Gestione assenze e permessi;Amministrato
-Amministrato;N;Assistenza alle funzionalità online;Servizi di rilevazione presenze;Gestione ferie e festività soppresse;Amministrato
-Amministrato;N;Assistenza alle funzionalità online;Previdenza ;Gestione previdenza complementare;Amministrato
-Amministrato;N;Assistenza alle funzionalità online;Previdenza ;Cruscotto previdenziale;Amministrato
-Amministrato;N;Assistenza alle funzionalità online;Prestiti e Convenzioni;Piccolo prestito;Amministrato
-Amministrato;N;Assistenza alle funzionalità online;Prestiti e Convenzioni;NoiPAssicura;Amministrato
-Amministrato;N;App NoiPA;Supporto Tecnico;Supporto Tecnico;Amministrato
-MVP;N;Modulo di Valutazione Performance;Assistenza alle funzionalità;Assistenza alle funzionalità;Amministrato
-MVP;N;Modulo di Valutazione Performance;Configurazione e gestione delle funzionalità;Configurazione e gestione delle funzionalità;Operatore
-Area Pensioni;N;Area Pensioni;Informazioni;Informazioni;Amministrato
-Enti creditori;N;Servizi per Enti Creditori e Professionisti;Richieste convenzionamento Ente, cessioni di credito;Richieste convenzionamento Ente, cessioni di credito;Amministrato
-Enti creditori;N;Servizi per Enti Creditori e Professionisti;Richiesta altre certificazioni;Richiesta altre certificazioni;Amministrato
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;
+;;;;;

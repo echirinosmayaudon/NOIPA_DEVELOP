@@ -37,32 +37,17 @@
 
 <liferay-theme:defineObjects />
 <script type="text/javascript">
-	var appoE = [];
-	var appoCU = [];
-	var appoA = [];
-	var appoTm = [];
-	var appoTp = [];
-
 <%
 Log _log = LogFactoryUtil.getLog("INIT PAGE");
 WebFormAssistenzaConfiguration exampleConfiguration =
         (WebFormAssistenzaConfiguration)
         renderRequest.getAttribute(WebFormAssistenzaConfiguration.class.getName());
-
-	String favoriteColor = StringPool.BLANK;
-	String favoriteColor1 = StringPool.BLANK;
-	String linkSorgente = StringPool.BLANK;
+	
 	String listaAmministrazioni = StringPool.BLANK;
-	String elementCategoriautentiNum = StringPool.BLANK; 
-	List<ConfigurazioneBeanEx> listaEnti = new LinkedList<ConfigurazioneBeanEx>(); 
-	List<ConfigurazioneBean> listaCategoriaUtenti = new LinkedList<ConfigurazioneBean>(); 
-	List<ConfigurazioneBeanEx> listaArea = new LinkedList<ConfigurazioneBeanEx>();
-	List<ConfigurazioneBeanEx> listaTematica = new LinkedList<ConfigurazioneBeanEx>();
-	List<ConfigurazioneBeanEx> listaTipologia = new LinkedList<ConfigurazioneBeanEx>();
 	String listaTipologie = StringPool.BLANK; 
-	String area  = StringPool.BLANK;
-	String tematica  = StringPool.BLANK;
-	String tipologia  = StringPool.BLANK;
+	
+	
+
 	String mailconfigMail  = StringPool.BLANK;
 	String mailconfigNominativo  = StringPool.BLANK;
 	String mailconfigNominativoBE  = StringPool.BLANK;
@@ -138,7 +123,8 @@ WebFormAssistenzaConfiguration exampleConfiguration =
       
         listaTipologie =
                 portletPreferences.getValue("listaTipologie", exampleConfiguration.listaTipologie());
-        
     } 
 %>
+
 </script>
+

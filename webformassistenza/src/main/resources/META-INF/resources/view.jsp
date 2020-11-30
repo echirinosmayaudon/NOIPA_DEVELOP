@@ -4,12 +4,10 @@
 
 String ddmStructureKeyT = (String)renderRequest.getAttribute("ddmStructureKeyT");
 String ddmStructureKeyR = (String)renderRequest.getAttribute("ddmStructureKeyR");
-
 ListaAssistenza assistenza = (ListaAssistenza)renderRequest.getAttribute("assistenza");
 long groupId= themeDisplay.getSiteGroupId();
 
 %>
-
 
 <div class="BGContainer">
 	<div id="group">
@@ -228,11 +226,29 @@ long groupId= themeDisplay.getSiteGroupId();
 			<% } %>
 	</div>
 </div>
-    <portlet:actionURL name="visualizzaForm" var="visualizzaFormURL" />
     
 <div class="text-center py-3">
 			<h2 class="mt-5 pb-0 text-28p" id="cat-1"><liferay-ui:message key="noipawebformassistenza.wizard.start" /></h2>
-			<a title="<liferay-ui:message key="noipawebformassistenza.label.link.accessibilita" />" aria-label="<liferay-ui:message key="noipawebformassistenza.label.link.accessibilita" />" href="${visualizzaFormURL}" class="btn btn-default bg-transparent btn-lg my-5 px-5 text-16p py-2"><liferay-ui:message key="noipawebformassistenza.wizard.start.1" /></a>
+			
 </div>
-				
-		
+
+<div class="text-center py-3">
+<div class="row">
+	<div class="col-md-3"> <%-- <liferay-ui:message key="noipawebformassistenza.wizard.start.1" />--%> 
+		<a title="<liferay-ui:message key="noipawebformassistenza.label.link.accessibilita" />" aria-label="<liferay-ui:message key="noipawebformassistenza.label.link.accessibilita" />" href="${urlAmministrato}" class="btn btn-default bg-transparent btn-lg my-5 px-5 text-16p py-2">Amministrato</a>
+	</div>
+	
+	<div class="col-md-3">
+		<a title="<liferay-ui:message key="noipawebformassistenza.label.link.accessibilita" />" aria-label="<liferay-ui:message key="noipawebformassistenza.label.link.accessibilita" />" href="${urlMVP}" class="btn btn-default bg-transparent btn-lg my-5 px-5 text-16p py-2">MVP</a>
+	</div>
+	
+	<div class="col-md-3">
+		<a title="<liferay-ui:message key="noipawebformassistenza.label.link.accessibilita" />" aria-label="<liferay-ui:message key="noipawebformassistenza.label.link.accessibilita" />" href="${urlAreaPensioni}" class="btn btn-default bg-transparent btn-lg my-5 px-5 text-16p py-2">Area pensioni</a>
+	</div>
+	
+	<div class="col-md-3">
+		<a title="<liferay-ui:message key="noipawebformassistenza.label.link.accessibilita" />" aria-label="<liferay-ui:message key="noipawebformassistenza.label.link.accessibilita" />" href="${urlEntiCreditori}" class="btn btn-default bg-transparent btn-lg my-5 px-5 text-16p py-2">Enti creditori</a>
+	</div>
+</div>
+
+</div>

@@ -111,34 +111,81 @@
 				<div class="form-group required col-sm-8 mb-4">
 					<aui:select name="amminis" id="amminis" label="noipawebformassistenza.dati.amm" value="${amminis}" onblur="validationEmptyMessage(this);">
 						<aui:option value="" ><liferay-ui:message key="noipawebformassistenza.dati.seleziona" /></aui:option>
+												<% 
+				        for(ConfigurazioneBeanEx beanCU : listaEnti){
+				        	String cuKey = beanCU.getKey();
+				        	String cuValue = beanCU.getValue();
+				        	cuValue = cuValue.contains("-X-") ? cuValue.replaceAll("-X-", "'"):cuValue;
+				        	String cuFlag = beanCU.getRifKey();
+				      	 %>
+							<aui:option value="<%=cuFlag+"-"+cuKey%>" ><%=cuValue%></aui:option>
+						<%  }  %>
 					</aui:select>
-					
 					<div class="help-block d-none" role="alert" id="<portlet:namespace/>amminisErrorMessage"><span class="control-error-message"><liferay-ui:message key="this-field-is-required" /></span></div>
 				</div>
 				<div class="form-group required col-sm-4 mb-4">
-					<aui:select name="catuser" id="catuser" label="noipawebformassistenza.dati.catuser"   value="${catuser}" onblur="validationEmptyMessage(this);">
+					<aui:select name="catuser" id="catuser" label="noipawebformassistenza.dati.catuser"   value="${catuser}"
+					disabled="${empty catuser or fn:length(catuser) eq 0}" onblur="validationEmptyMessage(this);">
+						<c:choose>
+						    <c:when test="${empty catuser or fn:length(catuser) eq 0}">
+						        <aui:option value="" ><liferay-ui:message key="noipawebformassistenza.dati.seleziona" /></aui:option>
+						    </c:when>
+						    <c:otherwise>
+						         <aui:option value="${catuser}" selected="<%=true%>">${catuser}</aui:option>
+						    </c:otherwise>
+						</c:choose>
+
+<%-- 						<% 
+				        for(ConfigurazioneBean beanCU : listaCategoriaUtenti){
+				        	String cuKey = beanCU.getKey();
+				        	String cuValue = beanCU.getValue();
+				      	 %>
+							<aui:option value="<%=cuValue%>"><%=cuKey%></aui:option>
+						<%  }  %> --%>
 					</aui:select>
 					<div class="help-block d-none" id="<portlet:namespace/>catuserErrorMessage"><span class="control-error-message"><liferay-ui:message key="this-field-is-required" /></span></div>
 				</div>
-			</div> 
+			</div>
 			<div class="row">
 				<div class="form-group required col-sm-4 mb-4">
 					<aui:select name="area" id="area" label="noipawebformassistenza.dati.ar" value="${area}" 
-					 onblur="validationEmptyMessage(this);">
-						
+					disabled="${empty area or fn:length(area) eq 0}" onblur="validationEmptyMessage(this);">
+						<c:choose>
+						    <c:when test="${empty area or fn:length(area) eq 0}">
+						        <aui:option value="" ><liferay-ui:message key="noipawebformassistenza.dati.seleziona" /></aui:option>
+						    </c:when>
+						    <c:otherwise>
+						         <aui:option value="${area}" selected="<%=true%>">${area}</aui:option>
+						    </c:otherwise>
+						</c:choose>
 					</aui:select>
 					<div class="help-block d-none" id="<portlet:namespace/>areaErrorMessage"><span class="control-error-message"><liferay-ui:message key="this-field-is-required" /></span></div>
 				</div>
-				<div class="form-group required col-sm-4 mb-4"> 
+				<div class="form-group required col-sm-4 mb-4">
 					<aui:select name="tematica" id="tematica" label="noipawebformassistenza.dati.tem"  value="${tematica}"
-					 onblur="validationEmptyMessage(this);">
-						
+					disabled="${empty tematica or fn:length(tematica) eq 0}" onblur="validationEmptyMessage(this);">
+						<c:choose>
+						    <c:when test="${empty tematica or fn:length(tematica) eq 0}">
+						        <aui:option value="" ><liferay-ui:message key="noipawebformassistenza.dati.seleziona" /></aui:option>
+						    </c:when>
+						    <c:otherwise>
+						         <aui:option value="${tematica}" selected="<%=true%>">${tematica}</aui:option>
+						    </c:otherwise>
+						</c:choose>
 					</aui:select>
 					<div class="help-block d-none" id="<portlet:namespace/>tematicaErrorMessage"><span class="control-error-message"><liferay-ui:message key="this-field-is-required" /></span></div>
 				</div>
-				<div class="form-group required col-sm-4 mb-4">  
-					<aui:select name="tipologia" id="tipologia" label="noipawebformassistenza.dati.tip"   value="${tipologia}" onblur="validationEmptyMessage(this);">
-						
+				<div class="form-group required col-sm-4 mb-4">
+					<aui:select name="tipologia" id="tipologia" label="noipawebformassistenza.dati.tip"   value="${tipologia}" 
+					disabled="${empty tipologia or fn:length(tipologia) eq 0}" onblur="validationEmptyMessage(this);">
+						<c:choose>
+						    <c:when test="${empty tipologia or fn:length(tipologia) eq 0}">
+						        <aui:option value="" ><liferay-ui:message key="noipawebformassistenza.dati.seleziona" /></aui:option>
+						    </c:when>
+						    <c:otherwise>
+						         <aui:option value="${tipologia}" selected="<%=true%>">${tipologia}</aui:option>
+						    </c:otherwise>
+						</c:choose>
 					</aui:select>
 					<div class="help-block d-none" role="alert" id="<portlet:namespace/>tipologiaErrorMessage"><span class="control-error-message"><liferay-ui:message key="this-field-is-required" /></span></div>
 				</div>
@@ -161,6 +208,8 @@
 				</div>
 			</div>
 
+
+	
 	<h3 class="my-4 p-0 text-primary-dark text-28p font-weight-bold border-bottom"><liferay-ui:message key="noipawebformassistenza.dati.filtro.captcha-text" /></h3>
 <%-- 		<div class="container-fluid">
 			<div class="row">
@@ -212,6 +261,13 @@
     </div>
 </div>
 		
+		
+		
+		
+		
+		<!--  -->
+		
+		
 	<h3 class="my-4 p-0 text-primary-dark text-28p font-weight-bold border-bottom"><liferay-ui:message key="noipawebformassistenza.dati.file" /></h3>
 		<div class="container-fluid">
 			<div class="row">
@@ -261,12 +317,6 @@
 </div>
  --%>
 
-<div class="text-center my-5">
-		<aui:input name="sezione" type="hidden" value="${sezione}"/>
-		<aui:input name="isSanita" type="hidden"/>
-		<aui:input name="enteVal" type="hidden"/>
-</div>
-
 </aui:form>
 
 </div>
@@ -276,256 +326,210 @@
  <portlet:resourceURL id="testoCaptchaAccessibileURL" var="testoCaptchaAccessibileURL" />
 
 
-<script type="text/javascript">
-	var jsonAmministrazioni=${jsonAmministrazioni};
-	var jsonTipologie=${jsonTipologie};
 
-	function resetComboz(combos) {
-    	if (combos != null) {
-        	for (var i = 0; i <= combos.length; i++) {
-               if ($("#<portlet:namespace/>" + combos[i]).length) {
-                    $("#<portlet:namespace/>" + combos[i]).empty();
-                }        
-    		}
+
+
+		<aui:script>
+		
+		alert("dentro la fuc");
+		var jsonAmm=${jsonAmministrazioni};
+		
+		alert(jsonAmm);
+		
+		function clearCombo(comboId,booleanDisable) {
+			$("#<portlet:namespace/>" + comboId).empty();
+			$optionVoid = $("<option/>").attr("value", "").text("<liferay-ui:message key="noipawebformassistenza.dati.seleziona" />");
+			$("#<portlet:namespace/>" + comboId).append($optionVoid);
+			if(booleanDisable) {
+				$("#<portlet:namespace/>" + comboId).prop('disabled', booleanDisable);
+			}
+			else {
+				$("#<portlet:namespace/>" + comboId).removeAttr('disabled');
+			}
 		}
-	}
-
-	function loadComboEnte(amministrazioni){
-		comboz = $("#<portlet:namespace/>amminis");
-		comboz.empty();
-        comboz.append("<option/>");
-         
-        $.each(amministrazioni, function(i, item) {    
-        	$option = $("<option/>").attr("value", item.Tipo+"-"+item.Codice).text(item.Amministrazione);
-        	comboz.append($option);
-        });
-        
-        if(amministrazioni.length==1){
-        	$($("#<portlet:namespace/>amminis").find('option')[1]).attr("selected","selected");
-        	$("#<portlet:namespace/>amminis" ).trigger( "change" );
-        }	 	
-	}
-	
-	function filterCategoria(){
-	  _sezione = $("#<portlet:namespace/>sezione").val();
-	  _isSanita = $("#<portlet:namespace/>isSanita").val();
-		_items = [];
-		$.each(jsonTipologie, function(i, item) {
-			if(item.sezione==_sezione && item.sanita == _isSanita){
-				if($.inArray(item.categoriaUtente,_items)< 0) {
-				_items.push(item.categoriaUtente);
-				}
-			}
-		});
-	     
-		return _items;
-	}
-	
-	function filterArea(){
-	  _sezione = $("#<portlet:namespace/>sezione").val();
-	  _isSanita = $("#<portlet:namespace/>isSanita").val();
-	  _cat = $("#<portlet:namespace/>catuser").val();
-		_items = [];
-		$.each(jsonTipologie, function(i, item) {
-			if(item.sezione==_sezione && item.sanita == _isSanita && item.categoriaUtente == _cat){
-				if($.inArray(item.area,_items)< 0) {
-				_items.push(item.area);
-				}
-			}
-		});
 		
-		return _items;
-	}
-	
-	function filterTematica(){
-	  _sezione = $("#<portlet:namespace/>sezione").val();
-	  _isSanita = $("#<portlet:namespace/>isSanita").val();
-	  _cat = $("#<portlet:namespace/>catuser").val();
-	  _area  = $("#<portlet:namespace/>area").val();
-		_items = [];
-		$.each(jsonTipologie, function(i, item) {
-			if(item.sezione==_sezione && item.sanita == _isSanita && item.categoriaUtente == _cat  && item.area == _area){
-				if($.inArray(item.tematica,_items)< 0) {
-				_items.push(item.tematica);
-				}
-			}
-		});
 		
-		return _items;
-	}
-	
-	function filterTipoProblema(){
-		_sezione = $("#<portlet:namespace/>sezione").val();
-	  _isSanita = $("#<portlet:namespace/>isSanita").val();
-	  _cat = $("#<portlet:namespace/>catuser").val();
-	  _area  = $("#<portlet:namespace/>area").val();
-	  _tematica  = $("#<portlet:namespace/>tematica").val();
-		_items = [];
-		$.each(jsonTipologie, function(i, item) {
-			if(item.sezione==_sezione && item.sanita == _isSanita && item.categoriaUtente == _cat  && item.area == _area && item.tematica == _tematica){
-				if($.inArray(item.tipoProblema,_items)< 0) {
-				_items.push(item.tipoProblema);
-				}
-			}
-		});
+		AUI()
+		.use(
+				'aui-base',
+				'aui-io-request',
+				function(A) {
+					A
+							.one("#<portlet:namespace/>amminis")
+							.on(
+									'change',
+									function() {
+										var inputObject = A
+												.one(
+														"#<portlet:namespace/>amminis")
+												.get('value');
+										console.log("inputObject: "+inputObject);
+										console.log("appoCU: "+appoCU);
+										clearCombo('catuser',false);
+										clearCombo('area',true);
+										clearCombo('tematica',true);
+										clearCombo('tipologia',true);
+										$.each(appoCU, function (index, element) {
+											console.log(element.key);
+											if(includesIE(inputObject,"-")){
+												if(element.key == inputObject.split("-")[0]){
+													$option = $("<option/>").attr("value", element.value).text(element.value);
+													$("#<portlet:namespace/>catuser").append($option);
+													console.log($option);
+												}
+										}
+										});
+									});
+
+				});
 		
-		return _items;
-	}
-	
-	function loadComboCategoria(){
-		comboz = $("#<portlet:namespace/>catuser");
-		comboz.empty();
-        comboz.append("<option/>");
-
-        data = filterCategoria();
-        
-        $.each(data, function(i, item) {
-        	$option = $("<option/>").attr("value", item).text(item);
-        	comboz.append($option);
-        });	
-        if(data.length==1){
-        	$($("#<portlet:namespace/>catuser").find('option')[1]).attr("selected","selected");
-        	$("#<portlet:namespace/>catuser" ).trigger( "change" );
-
-        }	 	
-	}
-	
-	function loadComboArea(){
-		comboz = $("#<portlet:namespace/>area");
-		comboz.empty();
-        comboz.append("<option/>");
-        
-        data = filterArea();
-        
-        $.each(data, function(i, item) {
-        	$option = $("<option/>").attr("value", item).text(item);
-        	comboz.append($option);
-        });	
-        if(data.length==1){
-        	$($("#<portlet:namespace/>area").find('option')[1]).attr("selected","selected");
-        	$("#<portlet:namespace/>area" ).trigger( "change" );
-
-        }	 	
 		
-	}
-	
-	function loadComboTematica(){
-		comboz = $("#<portlet:namespace/>tematica");
-		comboz.empty();
-        comboz.append("<option/>");
-        data = filterTematica();
-        
-        $.each(data, function(i, item) {
-        	$option = $("<option/>").attr("value", item).text(item);
-        	comboz.append($option);
-        });	
-        if(data.length==1){
-        	$($("#<portlet:namespace/>tematica").find('option')[1]).attr("selected","selected");
-        	$("#<portlet:namespace/>tematica" ).trigger( "change" );
-
-        }	 	
 		
-	}
-
-	function loadComboTipoProblema(){
-		comboz = $("#<portlet:namespace/>tipologia");
-		comboz.empty();
-        comboz.append("<option/>");
-        data = filterTipoProblema();
-        
-        $.each(data, function(i, item) {
-        	$option = $("<option/>").attr("value", item).text(item);
-        	comboz.append($option);
-        });	
-        if(data.length==1){
-        	$($("#<portlet:namespace/>tipologia").find('option')[1]).attr("selected","selected");
-        	$("#<portlet:namespace/>tipologia" ).trigger( "change" );
-
-        }	 	
 		
-	}
-	  
+			AUI()
+					.use(
+							'aui-base',
+							'aui-io-request',
+							function(A) {
+								A
+										.one("#<portlet:namespace/>catuser")
+										.on(
+												'change',
+												function() {
+													var inputObject = A
+															.one(
+																	"#<portlet:namespace/>catuser")
+															.get('value');
+													console.log("inputObject: "+inputObject);
+													clearCombo('area',false);
+													clearCombo('tematica',true);
+													clearCombo('tipologia',true);
+													$.each(appoA, function (index, element) {
+														if(element.value == inputObject){
+															var valueA = element.key+"-"+element.type;
+															$option = $("<option/>").attr("value", valueA).text(element.type);
+															$("#<portlet:namespace/>area").append($option);
+															console.log($option);
+														}
+													});
+												});
 
-	$('#<portlet:namespace/>amminis').bind("change", function (event) { 
-        _xval =  $(this).val();
-        _innersVal = _xval.split("-");
-   
-        $('#<portlet:namespace/>isSanita').val(_innersVal[0]);
-        $('#<portlet:namespace/>enteVal').val(_innersVal[1]);
-      
-        resetComboz(['catuser','area','tematica','tipologia']);
-        
-        if(_xval){        	        
-        	loadComboCategoria();        	        	        	
-        }
-    });
-	
-	
-	/*VALIDATO*/
-    $('#<portlet:namespace/>catuser').bind("change", function (event) { 
-        resetComboz(['area','tematica','tipologia']);
-        if(_xval){        	        
-        	loadComboArea();        	        	        	
-        }    
-    });
-    
-    $('#<portlet:namespace/>area').bind("change", function (event) { 
-        resetComboz(['tematica','tipologia']);
-        if(_xval){        	        
-        	loadComboTematica();        	        	        	
-        }
-    });
-    
-    
-    $('#<portlet:namespace/>tematica').bind("change", function (event) { 
-        resetComboz(['tipologia']);
-        if(_xval){        	        
-        	loadComboTipoProblema();        	        	        	
-        }
-    });
-	
-</script>
-	
-<aui:script>
-	AUI().ready(
-		function(){
-		
-		_sezione = $("#<portlet:namespace/>sezione").val();
-
-			if( _sezione == "Amministrato") {
-			 var ente = jsonAmministrazioni.filter(x => x.Amministrato == "S");
-       			//console.log(ente);
-       
-			 	loadComboEnte(ente)
-			}; 
-      
-			if( _sezione == "MVP"){
-			 var ente = jsonAmministrazioni.filter(x => x.MVP == "S");
-		       
-		      // console.log(ente);
-		      loadComboEnte(ente)
+							});
 			
-			};
-      
-			if( _sezione == "AreaPensioni") {
-			 var ente = jsonAmministrazioni.filter(x => x.AreaPensioni == "S");
-       		//console.log(ente);
-			 
-			 loadComboEnte(ente)
-			};
-      
-			if( _sezione == "EntiCreditori") {
-			 	var ente = jsonAmministrazioni.filter(x => x.EntiCreditori == "S");
-       			//console.log(ente);
-			 	
-			 	loadComboEnte(ente)
-			}
-		
-		});	
-</aui:script>		
-	
-	
-<script >
+			
+			AUI()
+			.use(
+					'aui-base',
+					'aui-io-request',
+					function(A) {
+						A
+								.one("#<portlet:namespace/>area")
+								.on(
+										'change',
+										function() {
+											var inputObject = A
+													.one(
+															"#<portlet:namespace/>area")
+													.get('value');
+											
+											var inputObjectCU = A
+											.one(
+													"#<portlet:namespace/>catuser")
+											.get('value');
+											
+											console.log("inputObjectA: "+inputObject);
+											var listOps = [];
+											clearCombo('tematica',false);
+											clearCombo('tipologia',true);
+											$.each(appoTm, function (index, element) {
+												if(includesIE(inputObject,"-")){
+													
+													
+													var flag = inputObject.split("-")[0];
+													var okF = false;
+													if(flag == "S"){
+														
+														okF = includesIE(element.key.toUpperCase(), "Sanit".toUpperCase()); 
+														
+													} else {
+														okF = !includesIE(element.key.toUpperCase(), "Sanit".toUpperCase());
+													}
+													
+													
+													if(element.value == inputObject.split("-")[1] && okF && inputObjectCU == element.key && !includesIE(listOps,element.type)){
+														var valueT = inputObject.split("-")[0]+"-"+element.type;
+														$option = $("<option/>").attr("value", valueT).text(element.type);
+														$("#<portlet:namespace/>tematica").append($option);
+														listOps.push(element.type);
+													}
+												}
+											});
+										});
+
+					});
+			
+			AUI()
+			.use(
+					'aui-base',
+					'aui-io-request',
+					function(A) {
+						A
+								.one("#<portlet:namespace/>tematica")
+								.on(
+										'change',
+										function() {
+											var inputObject = A
+													.one(
+															"#<portlet:namespace/>tematica")
+													.get('value');
+											
+											
+											
+												var inputObjectCA = A
+												.one(
+														"#<portlet:namespace/>catuser")
+												.get('value');
+												
+												var inputObjectAr = A
+												.one(
+														"#<portlet:namespace/>area")
+												.get('value');
+												
+												
+											console.log("inputObject: "+inputObject);
+											var listOps = [];
+											clearCombo('tipologia',false);
+											$.each(appoTp, function (index, element) {
+												if(includesIE(inputObject,"-")){
+													
+													
+													
+													
+													var flag = inputObject.split("-")[0];
+													var okF = false;
+													if(flag == "S"){
+														
+														okF = includesIE(element.key.toUpperCase(), "Sanit".toUpperCase()); 
+														
+													} else {
+														okF = !includesIE(element.key.toUpperCase(), "Sanit".toUpperCase());
+													}
+													
+													if(okF && inputObjectCA == element.key && inputObjectAr.split("-")[1] == element.value && element.type == inputObject.split("-")[1]){
+													
+													/* if(element.key == inputObject.split("-")[0] && element.value == inputObject.split("-")[1] && !includesIE(listOps,element.type)){ */
+														$option = $("<option/>").attr("value", element.extra).text(element.extra);
+														$("#<portlet:namespace/>tipologia").append($option);
+														listOps.push(element.extra);
+													}
+												}
+											});
+										});
+
+					});
+			
+		</aui:script>
+<script>
 function validationEmptyMessage(input){
 	var inputValue=input.value;
 	var inputID=input.id;

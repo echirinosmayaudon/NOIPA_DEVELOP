@@ -18,6 +18,9 @@ import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.portlet.LiferayPortletMode;
+import com.liferay.portal.kernel.portlet.LiferayWindowState;
+import com.liferay.portal.kernel.portlet.PortletURLFactoryUtil;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
 import com.liferay.portal.kernel.servlet.SessionErrors;
 import com.liferay.portal.kernel.theme.ThemeDisplay;
@@ -64,10 +67,13 @@ import javax.portlet.PortletException;
 import javax.portlet.PortletPreferences;
 import javax.portlet.PortletRequest;
 import javax.portlet.PortletSession;
+import javax.portlet.PortletURL;
 import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
+import javax.portlet.WindowStateException;
+
 import org.apache.commons.io.filefilter.MagicNumberFileFilter;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
@@ -196,14 +202,47 @@ public class WebformassistenzaPortlet extends MVCPortlet {
         	_log.info("tipologia="+tipologia);
     		
     	}
+    	
+   
     	renderRequest.setAttribute("catuser", catuser);
     	renderRequest.setAttribute("area", area);
     	renderRequest.setAttribute("tematica", tematica);
     	renderRequest.setAttribute("tipologia", tipologia);
     	
-		getEnti(renderRequest);
+    	/*ModConfig metodo da cambiare 25-11-2020*/
+    	
+    	//Creazione delle actionRequest per i tasti delle sezioni Amministrato;MVP;AreaPensioni;EntiCreditori
+    	String urlAmministrato=generatePortletActionUrl("Amministrato","visualizzaForm",renderRequest,themeDisplay);
+    	String urlMVP=generatePortletActionUrl("MVP","visualizzaForm",renderRequest,themeDisplay);
+    	String urlAreaPensioni=generatePortletActionUrl("AreaPensioni","visualizzaForm",renderRequest,themeDisplay);
+    	String urlEntiCreditori=generatePortletActionUrl("EntiCreditori","visualizzaForm",renderRequest,themeDisplay);
+    	
+    	renderRequest.setAttribute("urlAmministrato", urlAmministrato);
+    	renderRequest.setAttribute("urlMVP", urlMVP);
+    	renderRequest.setAttribute("urlAreaPensioni", urlAreaPensioni);
+    	renderRequest.setAttribute("urlEntiCreditori", urlEntiCreditori);
+    
+    	setConfigurazioni(renderRequest);
+    	
+    
+   	
         super.doView(renderRequest, renderResponse);
     }
+    
+    /**
+     * Metodo per creare un portletActionUrl
+     * @throws PortletException 
+     */
+    private String generatePortletActionUrl(String param,String portletActionMethod, PortletRequest portletRequest,ThemeDisplay themeDisplay) throws PortletException {
+    	
+    	  PortletURL actionUrl =  PortletURLFactoryUtil.create(portletRequest, themeDisplay.getPortletDisplay().getId(), themeDisplay.getPlid(), PortletRequest.ACTION_PHASE);
+		  actionUrl.setWindowState(LiferayWindowState.NORMAL);
+		  actionUrl.setPortletMode(LiferayPortletMode.VIEW);
+		  actionUrl.setParameter("javax.portlet.action", portletActionMethod);
+		  actionUrl.setParameter("sezione", param);    	
+    	return actionUrl.toString();
+    }
+    
     
     
     /*ModConfig metodo da cambiare 25-11-2020*/
@@ -216,7 +255,7 @@ public class WebformassistenzaPortlet extends MVCPortlet {
      */
     public void visualizzaForm(ActionRequest actionRequest, ActionResponse actionResponse){
     	_log.info(".... visualizzaForm");
-    	
+    
     	String amminis = ParamUtil.get(actionRequest, "amminis", "");
     	String catuser = ParamUtil.get(actionRequest, "catuser", "");
     	String area = ParamUtil.get(actionRequest, "area", "");
@@ -231,22 +270,27 @@ public class WebformassistenzaPortlet extends MVCPortlet {
     	actionRequest.setAttribute("tipologia", tipologia);
     	
     	
+     	/*ModConfig metodo da cambiare 25-11-2020*/
+    	
+    	/*
     	actionRequest.setAttribute("catuser", catuser);
     	actionRequest.setAttribute("area", area);
     	actionRequest.setAttribute("tematica", tematica);
     	actionRequest.setAttribute("tipologia", tipologia);
-    	
-		getEnti(actionRequest);
-		
-		
+    	*/
+    
+    	setConfigurazioni(actionRequest);
+    		String sezione = (String) ParamUtil.get(actionRequest, "sezione", "");
+    		_log.info("Dentro visualizza la form variabile sezione "+sezione);
+    		actionRequest.setAttribute("sezione", sezione);
+    		
     	PortletPreferences preferences = actionRequest.getPreferences();
     	String codiceCaptcha = preferences.getValue("mailconfigNominativo", _exampleConfiguration.mailconfigNominativo());
     	actionRequest.setAttribute("codiceCaptcha", codiceCaptcha);
     	actionResponse.setRenderParameter("jspPage", "/view_form.jsp");
     	
     }
-     
-
+    
     /**
      * Activate.
      *
@@ -312,7 +356,10 @@ public class WebformassistenzaPortlet extends MVCPortlet {
 		long sizeFile = uploadRequest.getSize("fileAllegatoWF");
         String sourceFileName = uploadRequest.getFileName("fileAllegatoWF");
         File file = uploadRequest.getFile("fileAllegatoWF");
-		getEnti(actionRequest);
+        
+        /*ModConfig metodo da cambiare 25-11-2020*/
+        setConfigurazioni(actionRequest);
+	
 		PortletPreferences preferences = actionRequest.getPreferences();
 	
     	//Validazione campi required 
@@ -680,35 +727,30 @@ public class WebformassistenzaPortlet extends MVCPortlet {
 	
 	/*ModConfig metodo da cambiare 25-11-2020*/
 
-    /**
-     * Restituisce gli enti dalla configurazione.
-     *
-     * @param portletRequest the portlet request
-     * @return the enti
-     */
-	private void getEnti(PortletRequest portletRequest){
+
+	private void setConfigurazioni(PortletRequest portletRequest){
 		PortletPreferences preferences = portletRequest.getPreferences();
 		
-		Map<String,String> enti = new HashMap<String,String>();
-		String listaAmministrazioni = preferences.getValue("listaAmministrazioni", _exampleConfiguration.listaAmministrazioni());
-		try {
-			JSONArray jsonArray = JSONFactoryUtil.createJSONArray(listaAmministrazioni);
-	    	int length = jsonArray.length();
-	    	for(int i = 0; i<length; i++){
-	    		JSONObject jsonObject = jsonArray.getJSONObject(i);
-	    		Iterator<String> keys = jsonObject.keys();
-	    		while (keys.hasNext()) {
-					String key = (String) keys.next();
-					String value = jsonObject.getString(key);
-					enti.put(key,value);
-				}
-	    	}
-		} catch (JSONException e) {
-			_log.error(e);
+
+		String jsonAmministrazioni= preferences.getValue("listaAmministrazioni",  _exampleConfiguration.listaAmministrazioni());
+		String jsonTipologie= preferences.getValue("listaTipologie",  _exampleConfiguration.listaTipologie());
+		
+		if(Validator.isNotNull(jsonAmministrazioni)){
+			portletRequest.setAttribute("jsonAmministrazioni",jsonAmministrazioni);
+		}else {
+			portletRequest.setAttribute("jsonAmministrazioni","");
 		}
-		portletRequest.setAttribute("entiAmministrazione",enti);
+	
+		
+		if(Validator.isNotNull(jsonTipologie)){
+			portletRequest.setAttribute("jsonTipologie",jsonTipologie);
+		}else {
+			portletRequest.setAttribute("jsonTipologie","");
+		}
+		
 		portletRequest.setAttribute(WebFormAssistenzaConfiguration.class.getName(),_exampleConfiguration);
         NoiPAWebAssistenzaUtils.hiddenDefaultMessage(portletRequest);
+        
 	}
 	
 	
@@ -863,6 +905,8 @@ public class WebformassistenzaPortlet extends MVCPortlet {
 		
 	}
 	
+	
+	/*ModConfig DA VERIFICARE PRIMA DI INVIARE LA MAIL*/
 	/**
 	 * Utility per la pulitura dei codici delle triplette.
 	 *
