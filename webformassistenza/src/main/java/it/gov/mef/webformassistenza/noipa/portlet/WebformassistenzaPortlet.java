@@ -336,14 +336,18 @@ public class WebformassistenzaPortlet extends MVCPortlet {
     	String codfis = ParamUtil.get(actionRequest, "codfis", "");
     	String tel = ParamUtil.get(actionRequest, "tel", "");
     	String mail = ParamUtil.get(actionRequest, "mail", "");
-    	String amminis = clearCode(ParamUtil.get(actionRequest, "amminis", ""));
-    	String catuser = clearCode(ParamUtil.get(actionRequest, "catuser", ""));
-    	String area = clearCode(ParamUtil.get(actionRequest, "area", ""));
-    	String tematica = clearCode(ParamUtil.get(actionRequest, "tematica", ""));
-    	String tipologia = clearCode(ParamUtil.get(actionRequest, "tipologia", ""));
+    	String amminis = ParamUtil.get(actionRequest, "amminis", "");
+    	String catuser = ParamUtil.get(actionRequest, "catuser", "");
+    	String area =ParamUtil.get(actionRequest, "area", "");
+    	String tematica = ParamUtil.get(actionRequest, "tematica", "");
+    	String tipologia = ParamUtil.get(actionRequest, "tipologia", "");
     	String descrizione = ParamUtil.get(actionRequest, "descrizione", "");
     	String captchaText= ParamUtil.get(actionRequest, "captchaText", "");
+    	String sezione = ParamUtil.get(actionRequest, "sezione", "");
     	
+        
+    	_log.info("========> sezione: "+sezione);
+    	actionRequest.setAttribute("sezione",sezione);
     	actionRequest.setAttribute("amminis",amminis);
     	actionRequest.setAttribute("catuser",catuser);
     	actionRequest.setAttribute("area",area);
