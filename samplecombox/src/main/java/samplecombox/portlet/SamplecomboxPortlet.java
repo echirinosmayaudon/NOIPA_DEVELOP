@@ -2,9 +2,16 @@ package samplecombox.portlet;
 
 import samplecombox.constants.SamplecomboxPortletKeys;
 
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
 import com.liferay.portal.kernel.portlet.bridges.mvc.MVCPortlet;
 
+import java.io.IOException;
+
 import javax.portlet.Portlet;
+import javax.portlet.PortletException;
+import javax.portlet.RenderRequest;
+import javax.portlet.RenderResponse;
 
 import org.osgi.service.component.annotations.Component;
 
@@ -27,4 +34,11 @@ import org.osgi.service.component.annotations.Component;
 	service = Portlet.class
 )
 public class SamplecomboxPortlet extends MVCPortlet {
+	Log _log=LogFactoryUtil.getLog(this.getClass());
+	
+	@Override
+	public void doView(RenderRequest renderRequest, RenderResponse renderResponse)
+			throws IOException, PortletException {
+		super.doView(renderRequest, renderResponse);
+	}
 }

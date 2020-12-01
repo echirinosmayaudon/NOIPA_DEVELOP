@@ -3,7 +3,9 @@ package it.gov.mef.eim;
 import com.liferay.portal.kernel.cache.MultiVMPoolUtil;
 import com.liferay.portal.kernel.log.Log;
 import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.util.PropsUtil;
 import com.liferay.portal.kernel.util.Time;
+import com.liferay.portal.kernel.util.Validator;
 
 import java.io.Serializable;
 import java.lang.reflect.Array;
@@ -13,6 +15,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.SortedMap;
 
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -52,6 +58,10 @@ public class EimClient<T extends Serializable> implements EimClientInterface<T> 
 	
 	/** The refresh time. */
 	private int refreshTime;
+	
+	/** The private token for rest service*/
+	
+	private String token;
 
 	/** The log. */
 	private static Log _log = LogFactoryUtil.getLog(EimClient.class);
@@ -66,10 +76,13 @@ public class EimClient<T extends Serializable> implements EimClientInterface<T> 
 		super();
 		this.clazz = clazz;
 		if(config!=null) {
-			this.host = config.getHost();
+			
+			this.host = config.getHost();	
 			this.path = config.getPath();
 			this.useCache = config.isUseCache();
 			this.refreshCacheMonthly = config.isRefreshCacheMonthly();
+			this.token=setToken();
+			
 			if(!this.refreshCacheMonthly) {
 				//converto il parametro che mi arriva in giorni riportandolo in secondi
 				if(refreshTime > 0) {
@@ -158,8 +171,10 @@ public class EimClient<T extends Serializable> implements EimClientInterface<T> 
 	 */
 	private List<T> callRestServiceForList(URI url) {
 		RestTemplate restTemplate = new RestTemplate();
-
-		ResponseEntity<T[]> responseEntityArray = restTemplate.getForEntity(url, getArrayClass(clazz));
+		
+		ResponseEntity<T[]> responseEntityArray = restTemplate.exchange(url, HttpMethod.GET, getHttpEntity(), getArrayClass(clazz));
+	 	_log.info("Body della risposta "+responseEntityArray.getBody());
+		//ResponseEntity<T[]> responseEntityArray = restTemplate.getForEntity(url, getArrayClass(clazz));
 
 		return Arrays.asList(responseEntityArray.getBody());
 	}
@@ -171,9 +186,13 @@ public class EimClient<T extends Serializable> implements EimClientInterface<T> 
 	 * @return the t
 	 */
 	private T callRestServiceForObject(URI url) {
-		RestTemplate restTemplate = new RestTemplate();
-
-		ResponseEntity<T> response = restTemplate.getForEntity(url, clazz);
+		
+			RestTemplate restTemplate = new RestTemplate();
+			
+        	ResponseEntity<T> response = restTemplate.exchange(url, HttpMethod.GET, getHttpEntity(), clazz);
+        		
+        	_log.info("Body della risposta "+response.getBody());
+		//ResponseEntity<T> response = restTemplate.getForEntity(url, clazz);
 		return response.getBody();
 	}
 	
@@ -199,6 +218,7 @@ public class EimClient<T extends Serializable> implements EimClientInterface<T> 
 	 * @return the url
 	 */
 	public static URI getUrl(String host, String path, String method, SortedMap<String, String> parameter) {
+			
 		UriComponentsBuilder uri = UriComponentsBuilder.fromUriString(host).path(path+"/"+method);
 		if(parameter!=null && !parameter.isEmpty()) {
 			for(Map.Entry<String,String> parameterEntry: parameter.entrySet()) {
@@ -244,8 +264,9 @@ public class EimClient<T extends Serializable> implements EimClientInterface<T> 
 	private byte[] callRestServiceForArrayByte(String urlMethod) {
 		RestTemplate restTemplate = new RestTemplate();
 		URI url = getUrl(host, path, urlMethod);
-
-		ResponseEntity<byte[]> response = (ResponseEntity<byte[]>) restTemplate.getForEntity(url, clazz);
+		ResponseEntity<byte[]> response =(ResponseEntity<byte[]>) restTemplate.exchange(url, HttpMethod.GET, getHttpEntity(), clazz);
+    	_log.info("Body della risposta "+response.getBody());		
+		//ResponseEntity<byte[]> response = (ResponseEntity<byte[]>) restTemplate.getForEntity(url, clazz);
 		return response.getBody();
 	}
 	
@@ -375,4 +396,59 @@ public class EimClient<T extends Serializable> implements EimClientInterface<T> 
 		}
 		return response;
 	}
+	/**Metodo che recupera il token dal portal-ext.properties altrimenti prende un value per default
+	 * 
+	 */
+	private String setToken() {
+		String tempToken= PropsUtil.get("noipa.eim.client.token");
+		return (Validator.isNotNull(tempToken))?tempToken: "vy8z42s6vaob7vz0m5bhimss99oh6n5f";
+	}
+	
+	/**
+	 * Metodo che setta gli headers all'interno di un HttpEntity object partendo dalla Map dei headers
+	 * @return
+	 */
+	private HttpEntity<String> getHttpEntity(Map<String,String> mapHeaders) {
+		HttpHeaders headers = new HttpHeaders();
+		
+		for(String key: mapHeaders.keySet()) {
+			headers.add(key, mapHeaders.get(key));
+		}
+		
+		HttpEntity<String> httpEntityReq = new HttpEntity<String>(headers);
+		
+		return httpEntityReq;
+	}
+	
+	/**
+	 * Metodo che setta gli headers all'interno di un HttpEntity object partendo dalla keyHeader e valueHeader 
+	 * @return
+	 */
+	private HttpEntity<String> getHttpEntity(String keyHeader,String valueHeader) {
+		HttpHeaders headers = new HttpHeaders();
+			headers.add(keyHeader, valueHeader);
+			HttpEntity<String> httpEntityReq = new HttpEntity<String>(headers);
+		return httpEntityReq;
+	}
+	
+	/**
+	 * Metodo che setta gli headers all'interno di un HttpEntity object settando token come header 
+	 * @return
+	 */
+	private HttpEntity<String> getHttpEntity() {
+		
+		HttpHeaders headers = new HttpHeaders();
+			headers.setContentType(MediaType.APPLICATION_JSON);
+			headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
+			
+			headers.add("user-key",token);
+			
+			HttpEntity<String> httpEntityReq = new HttpEntity<>(headers);
+			
+			
+		_log.info("List Headers  "+httpEntityReq.getHeaders());
+			
+		return httpEntityReq;
+	}
+	
 }
