@@ -107,13 +107,14 @@ import it.gov.mef.webformassistenza.noipa.http.util.FileAttachmentNoiPA;
 	immediate = true,
 	property = {
 		"com.liferay.portlet.display-category=NoiPA",
-		"com.liferay.portlet.instanceable=true",
+		"com.liferay.portlet.instanceable=false",
 		"javax.portlet.init-param.template-path=/",
 		"javax.portlet.init-param.view-template=/view.jsp",
 		"javax.portlet.name=" + WebformassistenzaPortletKeys.Webformassistenza,
 		"javax.portlet.display-name="+ WebformassistenzaPortletKeys.WebformassistenzaName,
 		"javax.portlet.resource-bundle=content.Language",
-		"javax.portlet.security-role-ref=power-user,user"
+		"javax.portlet.security-role-ref=power-user,user",
+		"javax.portlet.init-param.check-auth-token=false"
 	},
 	service = Portlet.class
 )

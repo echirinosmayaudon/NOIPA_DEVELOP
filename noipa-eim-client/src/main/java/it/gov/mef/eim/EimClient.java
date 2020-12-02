@@ -401,7 +401,7 @@ public class EimClient<T extends Serializable> implements EimClientInterface<T> 
 	 */
 	private String setToken() {
 		String tempToken= PropsUtil.get("noipa.eim.client.token");
-		return (Validator.isNotNull(tempToken))?tempToken: "vy8z42s6vaob7vz0m5bhimss99oh6n5f";
+		return (Validator.isNotNull(tempToken))?tempToken: "8shqmeba1bfglh8gyao5sqy30q0jwy5x";
 	}
 	
 	/**
