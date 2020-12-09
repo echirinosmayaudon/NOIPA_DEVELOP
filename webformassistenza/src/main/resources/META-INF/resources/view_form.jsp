@@ -491,8 +491,7 @@
     }
     
    function initComboz(){
-			_sezione = $("#<portlet:namespace/>sezione").val();
-
+			_sezione = $("#<portlet:namespace/>sezione").val();			
 			if( _sezione == "Amministrato") {
 				 var ente = $.grep(jsonAmministrazioni, function( item ) { return item.Amministrato == "S"; });
 			 		loadComboEnte(ente);
@@ -529,6 +528,8 @@
 	
 	
 <script >
+
+
 function validationEmptyMessage(input){	
 	var inputValue=input.value;
 	var inputID=input.id;

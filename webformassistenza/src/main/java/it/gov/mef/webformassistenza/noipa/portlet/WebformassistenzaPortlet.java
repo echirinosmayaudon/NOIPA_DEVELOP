@@ -345,7 +345,8 @@ public class WebformassistenzaPortlet extends MVCPortlet {
     	String codfis = ParamUtil.get(actionRequest, "codfis", "");
     	String tel = ParamUtil.get(actionRequest, "tel", "");
     	String mail = ParamUtil.get(actionRequest, "mail", "");
-    	String amminis = clearCode(ParamUtil.get(actionRequest, "amminis", ""));
+    	String amminisOriginale = ParamUtil.get(actionRequest, "amminis", "");
+    	String amminis = clearCode(amminisOriginale);
     	String catuser = ParamUtil.get(actionRequest, "catuser", "");
     	String area =ParamUtil.get(actionRequest, "area", "");
     	String tematica = ParamUtil.get(actionRequest, "tematica", "");
@@ -354,20 +355,9 @@ public class WebformassistenzaPortlet extends MVCPortlet {
     	String captchaText= ParamUtil.get(actionRequest, "captchaText", "");
     	String sezione = ParamUtil.get(actionRequest, "sezione", "");
 
-    	_log.info("========> nome: "+nome);
-    	_log.info("========> cognome: "+cognome);
-    	_log.info("========> codfis: "+codfis);
-    	_log.info("========> tel: "+tel);
-    	_log.info("========> mail: "+mail);
-    	_log.info("========> amminis: "+amminis);
-    	_log.info("========> area: "+area);
-    	_log.info("========> tematica: "+tematica);
-    	_log.info("========> tipologia: "+tipologia);
-    	_log.info("========> descrizione: "+descrizione);
-    	_log.info("========> captchaText: "+captchaText);
-    	_log.info("========> sezione: "+sezione);
     	actionRequest.setAttribute("sezione",sezione);
-    	actionRequest.setAttribute("amminis",amminis);
+    	actionRequest.setAttribute("amminis",amminisOriginale);
+    	
     	actionRequest.setAttribute("catuser",catuser);
     	actionRequest.setAttribute("area",area);
     	actionRequest.setAttribute("tematica",tematica);
