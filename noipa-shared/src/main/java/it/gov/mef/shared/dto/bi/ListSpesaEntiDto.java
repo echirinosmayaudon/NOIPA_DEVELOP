@@ -40,7 +40,6 @@ public class ListSpesaEntiDto implements Serializable{
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 	
-
 	/** The log. */
 	private static Log _log = LogFactoryUtil.getLog(ListSpesaEntiDto.class);
 	
@@ -49,6 +48,7 @@ public class ListSpesaEntiDto implements Serializable{
 	
 	/** The enti. */
 	private SortedSet<SpesaEnteDto> enti;
+	//private Set<SpesaEnteDto> enti;
 	
 	/** The importo tot. */
 	private double importo_tot;

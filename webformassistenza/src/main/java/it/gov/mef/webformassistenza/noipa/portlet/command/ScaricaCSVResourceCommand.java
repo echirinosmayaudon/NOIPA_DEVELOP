@@ -23,7 +23,7 @@ import org.osgi.service.component.annotations.Component;
 
 import it.gov.mef.webformassistenza.noipa.constants.WebformassistenzaPortletKeys;
 
-@Component(configurationPid = "it.anpal.portlet.formOnline.config.PortletFormOnlineConfig",
+@Component(configurationPid = "it.gov.mef.webformassistenza.noipa.configuration.WebFormAssistenzaConfiguration",
 immediate = true,
 property = {
 		"javax.portlet.name="+WebformassistenzaPortletKeys.Webformassistenza,

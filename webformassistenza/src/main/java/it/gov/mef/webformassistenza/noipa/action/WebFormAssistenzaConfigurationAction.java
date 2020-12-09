@@ -54,7 +54,7 @@ public class WebFormAssistenzaConfigurationAction extends DefaultConfigurationAc
 	
 	/** The log. */
 	private static Log _log = LogFactoryUtil.getLog(WebFormAssistenzaConfigurationAction.class);
-	private static String headerFile="";
+	//private static String headerFile="";
 
 	
 	/**
@@ -184,7 +184,6 @@ public class WebFormAssistenzaConfigurationAction extends DefaultConfigurationAc
             jsonArrayAmministrazioni=readFileCsv(csvAmministrazioni);
             
             //Set della costante header per i files Amministrazioni csv
-             WebformassistenzaPortletKeys.AmministrazioniCSVheader=headerFile;
         
               _log.info("jsonArray ="+jsonArrayAmministrazioni.toJSONString());  
         }
@@ -229,10 +228,7 @@ public class WebFormAssistenzaConfigurationAction extends DefaultConfigurationAc
             File csvTipologie = uploadRequestCat.getFile("fileConfigCSV");
             
             jsonArrayTipologie=readFileCsv(csvTipologie);  
-            
-            //Set della costante header per i files Tipologie csv per renderlo dinamico
-            WebformassistenzaPortletKeys.TipologieCSVheader=headerFile;
-       
+          
         }
 			String json = jsonArrayTipologie.toJSONString();		
 		//_log.info("json: "+json);
@@ -249,10 +245,6 @@ public class WebFormAssistenzaConfigurationAction extends DefaultConfigurationAc
 		 List<String> listaRigheCsv=ListUtil.fromFile(fileCsv);
 		 
 		 if(ListUtil.isNotEmpty(listaRigheCsv) && ListUtil.isNotNull(listaRigheCsv)) {
-			 
-			 //variabile headerFile per mantenere l'intestazione del file csv corrente
-			 headerFile=listaRigheCsv.get(0);
-			 
 			 String[] intestazioneFile=listaRigheCsv.get(0).split(";");
 			 
 			 //Eliminando l'intestazione dalla lista delle righe del file

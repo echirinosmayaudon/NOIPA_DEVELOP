@@ -17,11 +17,10 @@ import java.util.SortedMap;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
+
+import it.gov.mef.httpclient.util.HttpClientUtility;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -156,13 +155,11 @@ public class EimClient<T extends Serializable> implements EimClientInterface<T> 
 	 * @param response the response
 	 */
 	private void putOnCache(String key,Object response) {
-		
-		
-		
 		MultiVMPoolUtil.getPortalCache(CACHE_NAME).put(key,(Serializable) response,getRefreshTime());
 		_log.info("Key: "+key+" - Size: "+MultiVMPoolUtil.getPortalCache(CACHE_NAME).getKeys().size());
 	}
 	
+	/*DA FARE*/
 	/**
 	 * Call rest service for list.
 	 *
@@ -170,15 +167,17 @@ public class EimClient<T extends Serializable> implements EimClientInterface<T> 
 	 * @return the list
 	 */
 	private List<T> callRestServiceForList(URI url) {
-		RestTemplate restTemplate = new RestTemplate();
+		_log.info("callRest return genericListObject");
 		
-		ResponseEntity<T[]> responseEntityArray = restTemplate.exchange(url, HttpMethod.GET, getHttpEntity(), getArrayClass(clazz));
-	 	_log.info("Body della risposta "+responseEntityArray.getBody());
-		//ResponseEntity<T[]> responseEntityArray = restTemplate.getForEntity(url, getArrayClass(clazz));
-
-		return Arrays.asList(responseEntityArray.getBody());
+			String response= HttpClientUtility.callRestService(url, token);
+		
+			
+			/*Modifica al volo*/
+		//_log.info("Risposta dentro del list "+response);
+		return Arrays.asList(HttpClientUtility.mappingObject(response, getArrayClass(clazz)));
 	}
 	
+	/*Fatto*/
 	/**
 	 * Call rest service for object.
 	 *
@@ -186,15 +185,13 @@ public class EimClient<T extends Serializable> implements EimClientInterface<T> 
 	 * @return the t
 	 */
 	private T callRestServiceForObject(URI url) {
+		_log.info("callRest return single genericObject");
+		String response= HttpClientUtility.callRestService(url, token);
 		
-			RestTemplate restTemplate = new RestTemplate();
-			
-        	ResponseEntity<T> response = restTemplate.exchange(url, HttpMethod.GET, getHttpEntity(), clazz);
-        		
-        	_log.info("Body della risposta "+response.getBody());
-		//ResponseEntity<T> response = restTemplate.getForEntity(url, clazz);
-		return response.getBody();
+		//_log.info("Response in json "+response);
+		return HttpClientUtility.mappingObject(response,clazz);
 	}
+
 	
 	/**
 	 * Gets the url.
@@ -255,6 +252,7 @@ public class EimClient<T extends Serializable> implements EimClientInterface<T> 
 		return response;
 	}
 	
+	/*DA FARE*/
 	/**
 	 * Call rest service for array byte.
 	 *
@@ -262,12 +260,11 @@ public class EimClient<T extends Serializable> implements EimClientInterface<T> 
 	 * @return the byte[]
 	 */
 	private byte[] callRestServiceForArrayByte(String urlMethod) {
-		RestTemplate restTemplate = new RestTemplate();
-		URI url = getUrl(host, path, urlMethod);
-		ResponseEntity<byte[]> response =(ResponseEntity<byte[]>) restTemplate.exchange(url, HttpMethod.GET, getHttpEntity(), clazz);
-    	_log.info("Body della risposta "+response.getBody());		
-		//ResponseEntity<byte[]> response = (ResponseEntity<byte[]>) restTemplate.getForEntity(url, clazz);
-		return response.getBody();
+		_log.info("callRest return arrayByte");	
+			URI url = getUrl(host, path, urlMethod);
+	
+		//_log.info("Risposta dentro del arrayByte "+response);
+		return HttpClientUtility.callRestGetArrayBytes(url, token);
 	}
 	
 	/**
@@ -403,52 +400,4 @@ public class EimClient<T extends Serializable> implements EimClientInterface<T> 
 		String tempToken= PropsUtil.get("noipa.eim.client.token");
 		return (Validator.isNotNull(tempToken))?tempToken: "8shqmeba1bfglh8gyao5sqy30q0jwy5x";
 	}
-	
-	/**
-	 * Metodo che setta gli headers all'interno di un HttpEntity object partendo dalla Map dei headers
-	 * @return
-	 */
-	private HttpEntity<String> getHttpEntity(Map<String,String> mapHeaders) {
-		HttpHeaders headers = new HttpHeaders();
-		
-		for(String key: mapHeaders.keySet()) {
-			headers.add(key, mapHeaders.get(key));
-		}
-		
-		HttpEntity<String> httpEntityReq = new HttpEntity<String>(headers);
-		
-		return httpEntityReq;
-	}
-	
-	/**
-	 * Metodo che setta gli headers all'interno di un HttpEntity object partendo dalla keyHeader e valueHeader 
-	 * @return
-	 */
-	private HttpEntity<String> getHttpEntity(String keyHeader,String valueHeader) {
-		HttpHeaders headers = new HttpHeaders();
-			headers.add(keyHeader, valueHeader);
-			HttpEntity<String> httpEntityReq = new HttpEntity<String>(headers);
-		return httpEntityReq;
-	}
-	
-	/**
-	 * Metodo che setta gli headers all'interno di un HttpEntity object settando token come header 
-	 * @return
-	 */
-	private HttpEntity<String> getHttpEntity() {
-		
-		HttpHeaders headers = new HttpHeaders();
-			headers.setContentType(MediaType.APPLICATION_JSON);
-			headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-			
-			headers.add("user-key",token);
-			
-			HttpEntity<String> httpEntityReq = new HttpEntity<>(headers);
-			
-			
-		_log.info("List Headers  "+httpEntityReq.getHeaders());
-			
-		return httpEntityReq;
-	}
-	
 }

@@ -1,6 +1,8 @@
 Bundle-Name: noipa-eim-client
 Bundle-SymbolicName: it.gov.mef.eim
 Bundle-Version: 1.0.0
+Include-Resource: @ httpclient-4.5.jar, @ httpcore-4.4.1.jar, @ commons-codec-1.9.jar,\
+				 **
 Export-Package: it.gov.mef.eim
 -jsp: *.jsp,*.jspf
 -plugin.jsp: com.liferay.ant.bnd.jsp.JspAnalyzerPlugin

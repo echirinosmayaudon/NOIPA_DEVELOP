@@ -110,7 +110,7 @@
 			<div class="row">
 				<div class="form-group required col-sm-8 mb-4">
 					<aui:select name="amminis" id="amminis" label="noipawebformassistenza.dati.amm" value="${amminis}" onblur="validationEmptyMessage(this);">
-						<aui:option value="" ><liferay-ui:message key="noipawebformassistenza.dati.seleziona" /></aui:option>
+						
 					</aui:select>
 					
 					<div class="help-block d-none" role="alert" id="<portlet:namespace/>amminisErrorMessage"><span class="control-error-message"><liferay-ui:message key="this-field-is-required" /></span></div>
@@ -162,29 +162,6 @@
 			</div>
 
 	<h3 class="my-4 p-0 text-primary-dark text-28p font-weight-bold border-bottom"><liferay-ui:message key="noipawebformassistenza.dati.filtro.captcha-text" /></h3>
-<%-- 		<div class="container-fluid">
-			<div class="row">
-				<div class="form-group col-sm-4 mb-4">
-					<label><liferay-ui:message key="noipawebformassistenza.dati.filtro.captcha-text" /></label>
-				</div>
-				<div class="form-group col-sm-4 mb-4">
-<portlet:resourceURL var="captchaURL"/>
-  <img style="float:left;padding:0px !important;margin-left:10px;" alt='<liferay-ui:message key="text-to-identify" />' class="captcha" border=0 src="${captchaURL}<%= "&amp;" + new Random().nextInt(Integer.MAX_VALUE) %>" />  
-  <a href="#" class="refreshCaptcha captcha-reload ml-4" style="text-decoration: none;">
-  	<i class="fas fa-sync-alt"></i>
-  </a>
-
-		
-				</div>
-				<div class="form-group col-sm-4 mb-4">
-    <aui:input label="noipawebformassistenza.dati.filtro.risp" name="captchaText" size="10" type="text" value="">
-      <aui:validator name="required" />
-    </aui:input>					
-			
-				</div>
-			</div>
-		</div> --%>
-		
  
 <div class="container-fluid">
     <div class="row mt-4 rounded p-3 font-weight-700">
@@ -248,18 +225,10 @@
 		<aui:button-row>
 			<aui:button type="submit" name="invia"
 				value="noipawebformassistenza.dati.in" cssClass="btn btn-primary btm-noipa" />
-			<aui:button type="reset" name="cancella"
+			<aui:button type="button" name="cancella"
 				value="noipawebformassistenza.dati.clear" cssClass="btn btn-primary btm-noipa" />
 		</aui:button-row>
 	</div>
-
-<%-- <div class="row">
-	<div class="col-sm-12">
-		<liferay-ui:message key="noipawebformassistenza.dati.nota.concl" />
-		<liferay-ui:message key="noipawebformassistenza.dati.nota.concl.link" arguments="<%=mailconfigMail %>" />
-	</div>
-</div>
- --%>
 
 <div class="text-center my-5">
 		<aui:input name="sezione" type="hidden" value="${sezione}"/>
@@ -277,6 +246,14 @@
 
 
 <script type="text/javascript">
+	var emptyOptionText="<liferay-ui:message key='noipawebformassistenza.dati.seleziona' />";
+
+	var amminis = "${amminis}";
+	var catuser = "${catuser}";
+	var area = "${area}";
+	var tematica = "${tematica}";
+	var tipologia = "${tipologia}";
+	var sezione = "${sezione}"; 
 	var jsonAmministrazioni=${jsonAmministrazioni};
 	var jsonTipologie=${jsonTipologie};
 
@@ -284,26 +261,41 @@
     	if (combos != null) {
         	for (var i = 0; i <= combos.length; i++) {
                if ($("#<portlet:namespace/>" + combos[i]).length) {
-                    $("#<portlet:namespace/>" + combos[i]).empty();
-                }        
+            	  $("#<portlet:namespace/>" + combos[i]).empty();
+               }        
     		}
 		}
 	}
+	//Metodo che controlla se la combo è stata popolata in precedenza è per qualsiasi motivo non siamo riusciti ad inviare la form il valore non si perderà
+	//oppure il caso in cui la combo verrà caricata con un'unico valore esso deve essere selezzionato in automatico
+	function checkValueComboz(idCombo,valueCombo,arrayCombo){
+	//Vengo dal return la fail invio mail
+		 if(valueCombo!=""){
+				 $(idCombo).find('option[value="'+valueCombo+'"]').attr("selected","selected");
+	        	//$(idCombo+' option[value="'+ valueCombo +'"]').attr("selected","selected");	
+	        	$(idCombo).trigger( "change" );
+	      //Primo avvio della form 	
+	     }else if(arrayCombo.length==1){
+	    	 //	console.log("check combo arrayCombo == 1");
+	    	 	
+	    		$($(idCombo).find('option')[1]).attr("selected","selected");
+	        	$(idCombo).trigger( "change" );
+			// Se la combo ha già l'option seleziona...  	
+	      } 
+	}
 
 	function loadComboEnte(amministrazioni){
-		comboz = $("#<portlet:namespace/>amminis");
-		comboz.empty();
-        comboz.append("<option/>");
-         
-        $.each(amministrazioni, function(i, item) {    
-        	$option = $("<option/>").attr("value", item.Tipo+"-"+item.Codice).text(item.Amministrazione);
-        	comboz.append($option);
-        });
-        
-        if(amministrazioni.length==1){
-        	$($("#<portlet:namespace/>amminis").find('option')[1]).attr("selected","selected");
-        	$("#<portlet:namespace/>amminis" ).trigger( "change" );
-        }	 	
+			comboz = $("#<portlet:namespace/>amminis");
+			comboz.empty();
+	        comboz.append("<option>"+emptyOptionText+"</option>");
+	         
+	        $.each(amministrazioni, function(i, item) {    
+	        	$option = $("<option/>").attr("value", item.Tipo+"-"+item.Codice).text(item.Amministrazione);
+	        	comboz.append($option);
+	        });
+	     
+	    	//console.log("loadCombo amminis variabile amminis: "+amminis);
+	        checkValueComboz("#<portlet:namespace/>amminis",amminis,amministrazioni);
 	}
 	
 	function filterCategoria(){
@@ -375,7 +367,7 @@
 	function loadComboCategoria(){
 		comboz = $("#<portlet:namespace/>catuser");
 		comboz.empty();
-        comboz.append("<option/>");
+		comboz.append("<option>"+emptyOptionText+"</option>");
 
         data = filterCategoria();
         
@@ -383,17 +375,14 @@
         	$option = $("<option/>").attr("value", item).text(item);
         	comboz.append($option);
         });	
-        if(data.length==1){
-        	$($("#<portlet:namespace/>catuser").find('option')[1]).attr("selected","selected");
-        	$("#<portlet:namespace/>catuser" ).trigger( "change" );
-
-        }	 	
+        
+        checkValueComboz("#<portlet:namespace/>catuser",catuser,data);
 	}
 	
 	function loadComboArea(){
 		comboz = $("#<portlet:namespace/>area");
 		comboz.empty();
-        comboz.append("<option/>");
+		comboz.append("<option>"+emptyOptionText+"</option>");
         
         data = filterArea();
         
@@ -401,48 +390,36 @@
         	$option = $("<option/>").attr("value", item).text(item);
         	comboz.append($option);
         });	
-        if(data.length==1){
-        	$($("#<portlet:namespace/>area").find('option')[1]).attr("selected","selected");
-        	$("#<portlet:namespace/>area" ).trigger( "change" );
-
-        }	 	
-		
+        
+        checkValueComboz("#<portlet:namespace/>area",area,data);
 	}
 	
 	function loadComboTematica(){
 		comboz = $("#<portlet:namespace/>tematica");
 		comboz.empty();
-        comboz.append("<option/>");
+		comboz.append("<option>"+emptyOptionText+"</option>");
         data = filterTematica();
         
         $.each(data, function(i, item) {
         	$option = $("<option/>").attr("value", item).text(item);
         	comboz.append($option);
         });	
-        if(data.length==1){
-        	$($("#<portlet:namespace/>tematica").find('option')[1]).attr("selected","selected");
-        	$("#<portlet:namespace/>tematica" ).trigger( "change" );
-
-        }	 	
-		
+        
+        checkValueComboz("#<portlet:namespace/>tematica",tematica,data);
 	}
 
 	function loadComboTipoProblema(){
 		comboz = $("#<portlet:namespace/>tipologia");
 		comboz.empty();
-        comboz.append("<option/>");
+		comboz.append("<option>"+emptyOptionText+"</option>");
         data = filterTipoProblema();
         
         $.each(data, function(i, item) {
         	$option = $("<option/>").attr("value", item).text(item);
         	comboz.append($option);
         });	
-        if(data.length==1){
-        	$($("#<portlet:namespace/>tipologia").find('option')[1]).attr("selected","selected");
-        	$("#<portlet:namespace/>tipologia" ).trigger( "change" );
-
-        }	 	
-		
+        
+        checkValueComboz("#<portlet:namespace/>tipologia",tipologia,data);
 	}
 	  
 
@@ -455,8 +432,10 @@
       
         resetComboz(['catuser','area','tematica','tipologia']);
         
-        if(_xval){        	        
-        	loadComboCategoria();        	        	        	
+        if(_xval){
+        	amminis = "";
+       
+        	loadComboCategoria(); 
         }
     });
 	
@@ -464,14 +443,16 @@
 	/*VALIDATO*/
     $('#<portlet:namespace/>catuser').bind("change", function (event) { 
         resetComboz(['area','tematica','tipologia']);
-        if(_xval){        	        
+        if(_xval){  
+         	catuser = "";
         	loadComboArea();        	        	        	
         }    
     });
     
     $('#<portlet:namespace/>area').bind("change", function (event) { 
         resetComboz(['tematica','tipologia']);
-        if(_xval){        	        
+        if(_xval){   
+        	area = "";
         	loadComboTematica();        	        	        	
         }
     });
@@ -479,59 +460,81 @@
     
     $('#<portlet:namespace/>tematica').bind("change", function (event) { 
         resetComboz(['tipologia']);
-        if(_xval){        	        
+        if(_xval){     
+        	 tematica = "";
+        	 tipologia = "";
         	loadComboTipoProblema();        	        	        	
         }
     });
-	
+    
+    $('#<portlet:namespace/>cancella').bind("click", function (event) { 
+    	//Puliamo tutte le 
+    	resetInputz();
+    	resetComboz(['amminis','catuser','area','tematica','tipologia']);
+    	initComboz();
+    	
+    });
+    
+    function resetInputz(){
+    	$("#<portlet:namespace/>fm").find('input').each(function(index){
+	    	var input=$(this);	
+	    	
+	    	if(input.attr("name")!="<portlet:namespace/>sezione"){
+	    		input.attr("value","").text("");
+	    	}
+	    });
+    	
+    	$("#<portlet:namespace/>fm").find('textarea').each(function(index){
+	    	var input=$(this);	
+	    	input.attr("value","").text("");
+	    });
+    }
+    
+   function initComboz(){
+			_sezione = $("#<portlet:namespace/>sezione").val();
+
+			if( _sezione == "Amministrato") {
+				 var ente = $.grep(jsonAmministrazioni, function( item ) { return item.Amministrato == "S"; });
+			 		loadComboEnte(ente);
+			}; 
+     
+			if( _sezione == "MVP"){
+			  var ente = $.grep(jsonAmministrazioni, function( item ) { return item.MVP == "S"; });
+		      	loadComboEnte(ente);
+			};
+     
+			if( _sezione == "AreaPensioni") {
+      		  var ente = $.grep(jsonAmministrazioni, function( item ) { return item.AreaPensioni == "S"; });
+			 	loadComboEnte(ente);
+			};
+     
+			if( _sezione == "EntiCreditori") {
+      			  var ente = $.grep(jsonAmministrazioni, function( item ) { return item.EntiCreditori == "S"; });
+			 	loadComboEnte(ente);
+			}
+   }
+    
+   
+  
+    
 </script>
 	
 <aui:script>
 	AUI().ready(
 		function(){
-		
-		_sezione = $("#<portlet:namespace/>sezione").val();
-
-			if( _sezione == "Amministrato") {
-			 var ente = jsonAmministrazioni.filter(x => x.Amministrato == "S");
-       			//console.log(ente);
-       
-			 	loadComboEnte(ente)
-			}; 
-      
-			if( _sezione == "MVP"){
-			 var ente = jsonAmministrazioni.filter(x => x.MVP == "S");
-		       
-		      // console.log(ente);
-		      loadComboEnte(ente)
-			
-			};
-      
-			if( _sezione == "AreaPensioni") {
-			 var ente = jsonAmministrazioni.filter(x => x.AreaPensioni == "S");
-       		//console.log(ente);
-			 
-			 loadComboEnte(ente)
-			};
-      
-			if( _sezione == "EntiCreditori") {
-			 	var ente = jsonAmministrazioni.filter(x => x.EntiCreditori == "S");
-       			//console.log(ente);
-			 	
-			 	loadComboEnte(ente)
-			}
-		
+			//Primo caricamento delle combo
+			initComboz();
 		});	
 </aui:script>		
 	
 	
 <script >
-function validationEmptyMessage(input){
+function validationEmptyMessage(input){	
 	var inputValue=input.value;
 	var inputID=input.id;
 	var divMessageID=inputID+"ErrorMessage";
-	
-		if(inputValue==""){
+
+		if(inputValue=="" || inputValue==emptyOptionText){
 			$("#"+inputID).attr("aria-invalid","true");
 			$("#"+inputID).attr("aria-describedby",divMessageID);
 			$("#"+divMessageID).removeClass("d-none");

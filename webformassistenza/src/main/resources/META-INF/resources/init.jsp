@@ -84,12 +84,12 @@ WebFormAssistenzaConfiguration exampleConfiguration =
     	            "token", exampleConfiguration.token());
     	
     	String noipa_type_config = "";
-		_log.info("entro in : "+noipa_type_config+" - serviceUrl: "+serviceUrl);
-		_log.info("entro in : "+noipa_type_config+" - sendMethod: "+sendMethod);
-		_log.info("entro in : "+noipa_type_config+" - chechMethod: "+chechMethod);
-		_log.info("entro in : "+noipa_type_config+" - userId: "+userId);
-		_log.info("entro in : "+noipa_type_config+" - password: "+password);
-		_log.info("entro in : "+noipa_type_config+" - token: "+token);
+		//_log.info("entro in : "+noipa_type_config+" - serviceUrl: "+serviceUrl);
+		//_log.info("entro in : "+noipa_type_config+" - sendMethod: "+sendMethod);
+		//_log.info("entro in : "+noipa_type_config+" - chechMethod: "+chechMethod);
+		//_log.info("entro in : "+noipa_type_config+" - userId: "+userId);
+		//_log.info("entro in : "+noipa_type_config+" - password: "+password);
+		//_log.info("entro in : "+noipa_type_config+" - token: "+token);
     	
     	
     	

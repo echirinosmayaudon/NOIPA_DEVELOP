@@ -13,7 +13,6 @@ import com.liferay.portal.kernel.captcha.CaptchaTextException;
 import com.liferay.portal.kernel.captcha.CaptchaUtil;
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.json.JSONArray;
-import com.liferay.portal.kernel.json.JSONException;
 import com.liferay.portal.kernel.json.JSONFactoryUtil;
 import com.liferay.portal.kernel.json.JSONObject;
 import com.liferay.portal.kernel.log.Log;
@@ -52,7 +51,6 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
@@ -72,7 +70,6 @@ import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 import javax.portlet.ResourceRequest;
 import javax.portlet.ResourceResponse;
-import javax.portlet.WindowStateException;
 
 import org.apache.commons.io.filefilter.MagicNumberFileFilter;
 import org.osgi.service.component.annotations.Activate;
@@ -99,7 +96,7 @@ import it.gov.mef.webformassistenza.noipa.http.util.FileAttachmentNoiPA;
 /**
  * The Class WebformassistenzaPortlet.
  *
- * @author g.serbino
+ * @author g.serbino and e.chirinos
  */
 @Component(
 	    configurationPid =
@@ -218,6 +215,12 @@ public class WebformassistenzaPortlet extends MVCPortlet {
     	String urlAreaPensioni=generatePortletActionUrl("AreaPensioni","visualizzaForm",renderRequest,themeDisplay);
     	String urlEntiCreditori=generatePortletActionUrl("EntiCreditori","visualizzaForm",renderRequest,themeDisplay);
     	
+    	//_log.info("Amministrato "+urlAmministrato);
+    	//_log.info("MVP "+urlMVP);
+    	//_log.info("AreaPensioni "+urlAreaPensioni);
+    	//_log.info("EntiCreditori "+urlEntiCreditori);
+    	
+    	
     	renderRequest.setAttribute("urlAmministrato", urlAmministrato);
     	renderRequest.setAttribute("urlMVP", urlMVP);
     	renderRequest.setAttribute("urlAreaPensioni", urlAreaPensioni);
@@ -279,8 +282,13 @@ public class WebformassistenzaPortlet extends MVCPortlet {
     	actionRequest.setAttribute("tematica", tematica);
     	actionRequest.setAttribute("tipologia", tipologia);
     	*/
-    
+    	
+    	try {
     	setConfigurazioni(actionRequest);
+    	}catch(Exception e) {
+    		_log.error(e);
+    	}
+    	
     		String sezione = (String) ParamUtil.get(actionRequest, "sezione", "");
     		_log.info("Dentro visualizza la form variabile sezione "+sezione);
     		actionRequest.setAttribute("sezione", sezione);
@@ -337,7 +345,7 @@ public class WebformassistenzaPortlet extends MVCPortlet {
     	String codfis = ParamUtil.get(actionRequest, "codfis", "");
     	String tel = ParamUtil.get(actionRequest, "tel", "");
     	String mail = ParamUtil.get(actionRequest, "mail", "");
-    	String amminis = ParamUtil.get(actionRequest, "amminis", "");
+    	String amminis = clearCode(ParamUtil.get(actionRequest, "amminis", ""));
     	String catuser = ParamUtil.get(actionRequest, "catuser", "");
     	String area =ParamUtil.get(actionRequest, "area", "");
     	String tematica = ParamUtil.get(actionRequest, "tematica", "");
@@ -345,8 +353,18 @@ public class WebformassistenzaPortlet extends MVCPortlet {
     	String descrizione = ParamUtil.get(actionRequest, "descrizione", "");
     	String captchaText= ParamUtil.get(actionRequest, "captchaText", "");
     	String sezione = ParamUtil.get(actionRequest, "sezione", "");
-    	
-        
+
+    	_log.info("========> nome: "+nome);
+    	_log.info("========> cognome: "+cognome);
+    	_log.info("========> codfis: "+codfis);
+    	_log.info("========> tel: "+tel);
+    	_log.info("========> mail: "+mail);
+    	_log.info("========> amminis: "+amminis);
+    	_log.info("========> area: "+area);
+    	_log.info("========> tematica: "+tematica);
+    	_log.info("========> tipologia: "+tipologia);
+    	_log.info("========> descrizione: "+descrizione);
+    	_log.info("========> captchaText: "+captchaText);
     	_log.info("========> sezione: "+sezione);
     	actionRequest.setAttribute("sezione",sezione);
     	actionRequest.setAttribute("amminis",amminis);
@@ -362,6 +380,8 @@ public class WebformassistenzaPortlet extends MVCPortlet {
         String sourceFileName = uploadRequest.getFileName("fileAllegatoWF");
         File file = uploadRequest.getFile("fileAllegatoWF");
         
+        
+    	_log.info("========> file: "+sourceFileName);
         /*ModConfig metodo da cambiare 25-11-2020*/
         setConfigurazioni(actionRequest);
 	
