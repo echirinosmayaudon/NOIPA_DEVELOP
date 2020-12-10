@@ -225,7 +225,7 @@
 		<aui:button-row>
 			<aui:button type="submit" name="invia"
 				value="noipawebformassistenza.dati.in" cssClass="btn btn-primary btm-noipa" />
-			<aui:button type="button" name="cancella"
+			<aui:button type="reset" name="cancella"
 				value="noipawebformassistenza.dati.clear" cssClass="btn btn-primary btm-noipa" />
 		</aui:button-row>
 	</div>
