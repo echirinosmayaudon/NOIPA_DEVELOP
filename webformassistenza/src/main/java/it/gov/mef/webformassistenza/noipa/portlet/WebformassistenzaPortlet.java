@@ -290,7 +290,7 @@ public class WebformassistenzaPortlet extends MVCPortlet {
     	}
     	
     		String sezione = (String) ParamUtil.get(actionRequest, "sezione", "");
-    		_log.info("Dentro visualizza la form variabile sezione "+sezione);
+    	//	_log.info("Dentro visualizza la form variabile sezione "+sezione);
     		actionRequest.setAttribute("sezione", sezione);
     		
     	PortletPreferences preferences = actionRequest.getPreferences();

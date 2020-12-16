@@ -56,3 +56,7 @@
     height: inherit;
     margin: 7px 0;
 } 
+
+.noipa-m-width{
+	min-width: 307px;
+}

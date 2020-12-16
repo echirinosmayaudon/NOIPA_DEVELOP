@@ -26,12 +26,15 @@
 		<div class="BGContainer">
 			<div class="container">
 				<div class="">
-					<h2 class="mb-4 p-0 text-primary-dark text-32p font-weight-bold"><liferay-ui:message key="noipawebformassistenza.dati.supporto" /></h2>
+					<h2 class="mb-4 p-0 text-primary-dark text-32p font-weight-bold"><liferay-ui:message key="noipawebformassistenza.dati.supporto.${sezione}" /></h2>
 					
 
 					
 					<p><liferay-ui:message key="noipawebformassistenza.dati.desc.nota1" /></p>
-					<p><liferay-ui:message key="noipawebformassistenza.dati.desc.nota2" /></p> 
+					 <c:if test = "${sezione eq 'Amministrato'}">
+         				<p><liferay-ui:message key="noipawebformassistenza.dati.desc.nota2" /></p>
+    				  </c:if>
+					 
 					   
     <liferay-ui:error key="" message=""/>
    
@@ -47,32 +50,41 @@
 		<h3 class="my-4 p-0 text-primary-dark text-28p font-weight-bold border-bottom"><liferay-ui:message key="noipawebformassistenza.dati.us" /></h3>
 			<div class="row">
 				<div class="form-group required col-sm-4 mb-4">
-					<aui:input name="nome"  id="nome" label="noipawebformassistenza.dati.nome" cssClass="formControl" value="${nome}" onblur="validationEmptyMessage(this);">
-				        <aui:validator errorMessage="campo.alfa" name="custom">
+					<aui:input name="nome"  id="nome" label="${sezione eq 'EntiCreditori' ? 'noipawebformassistenza.dati.denominazione' : 'noipawebformassistenza.dati.nome'}" cssClass="formControl" value="${nome}" onblur="validationEmptyMessage(this);">
+				        
+				         <c:if test = "${sezione ne 'EntiCreditori'}">
+         					<aui:validator errorMessage="campo.alfa" name="custom">
 					                function(val, fieldNode, ruleValue) {
 					                        var regex = new RegExp(/^[a-zA-Z][\S]\D*$/i);
 					                        return regex.test(val);
 					                }
-					        </aui:validator>
+					        </aui:validator>	
+    					 </c:if>
+				        
 					</aui:input>
 						<div class="help-block d-none" role="alert" id="<portlet:namespace/>nomeErrorMessage"><span class="control-error-message"><liferay-ui:message key="this-field-is-required" /></span></div>
 				</div>
 				<div class="form-group required col-sm-4 mb-4">
-					<aui:input name="cognome"  id="cognome" label="noipawebformassistenza.dati.cognome" cssClass="formControl" value="${cognome}" onblur="validationEmptyMessage(this);">
-				        <aui:validator errorMessage="campo.alfa" name="custom">
+					<aui:input name="cognome"  id="cognome" label="${sezione eq 'EntiCreditori' ? 'noipawebformassistenza.dati.ragSociale' : 'noipawebformassistenza.dati.cognome'}" cssClass="formControl" value="${cognome}" onblur="validationEmptyMessage(this);">
+				       
+				        <c:if test = "${sezione ne 'EntiCreditori'}">
+         					 <aui:validator errorMessage="campo.alfa" name="custom">
 					                function(val, fieldNode, ruleValue) {
 					                        var regex = new RegExp(/^[a-zA-Z][\S]\D*$/i);
 					                        return regex.test(val);
 					                }
-					        </aui:validator>
+					    	</aui:validator>
+    					 </c:if>
+				        
+				       
 					</aui:input>
 						<div class="help-block d-none" role="alert" id="<portlet:namespace/>cognomeErrorMessage"><span class="control-error-message"><liferay-ui:message key="this-field-is-required" /></span></div>
 				</div>
 				<div class="form-group required col-sm-4 mb-4">
-					<aui:input name="codfis"  id="codfis" label="noipawebformassistenza.dati.cf" cssClass="formControl" value="${codfis}" maxlength="16" onblur="validationEmptyMessage(this);">
-					        <aui:validator errorMessage="noipawebformassistenza.dati.cf.error" name="custom">
+					<aui:input name="codfis"  id="codfis" label="${sezione eq 'EntiCreditori' ? 'noipawebformassistenza.dati.piva' : 'noipawebformassistenza.dati.cf'}" cssClass="formControl" value="${codfis}" maxlength="16" onblur="validationEmptyMessage(this);">
+					        <aui:validator errorMessage="${sezione eq 'EntiCreditori' ? 'noipawebformassistenza.dati.piva.error' : 'noipawebformassistenza.dati.cf.error'}" name="custom">
 					                function(val, fieldNode, ruleValue) {
-					                        var regex = new RegExp(/^[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]$/i);
+					                        var regex = new RegExp(/(^[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]$)|(^[0-9]{11,11}$)/i);
 					                        return regex.test(val);
 					                }
 					        </aui:validator>
@@ -107,7 +119,7 @@
 			</div>
 <h3 class="my-4 p-0 text-primary-dark text-28p font-weight-bold border-bottom"><liferay-ui:message key="noipawebformassistenza.dati.dett.seg" /></h3>
 		<span class="sr-only"><liferay-ui:message key="noipa.client.aiuto.accessibilita.popolazione.combo" /></span>
-			<div class="row">
+			<div class="row" id="amminisRow">
 				<div class="form-group required col-sm-8 mb-4">
 					<aui:select name="amminis" id="amminis" label="noipawebformassistenza.dati.amm" value="${amminis}" onblur="validationEmptyMessage(this);">
 						
@@ -503,11 +515,13 @@
 			};
      
 			if( _sezione == "AreaPensioni") {
+				 $('#amminisRow').addClass("d-none");
       		  var ente = $.grep(jsonAmministrazioni, function( item ) { return item.AreaPensioni == "S"; });
 			 	loadComboEnte(ente);
 			};
      
 			if( _sezione == "EntiCreditori") {
+				 $('#amminisRow').addClass("d-none");
       			  var ente = $.grep(jsonAmministrazioni, function( item ) { return item.EntiCreditori == "S"; });
 			 	loadComboEnte(ente);
 			}
