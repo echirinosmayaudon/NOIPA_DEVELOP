@@ -52,9 +52,9 @@
 		  <div class="col-md-4"></div>
 		</div>
 		
-		<div class="row">
-		  <div class="col-md-4">Link documento privacy</div>
-		  <div class="col-md-4">
+		<div class="row" style="margin-top:1rem;">
+		  <div class="col-md-3">Link documento privacy policy</div>
+		  <div class="col-md-9">
 		  <aui:input name="linkDocumentoPrivacy" type="text"  label="" value="<%= linkDocumentoPrivacy %>" >
 		  </aui:input></div>
 		  <div class="col-md-4"></div>
