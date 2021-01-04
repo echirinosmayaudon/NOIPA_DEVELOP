@@ -227,33 +227,31 @@ long groupId= themeDisplay.getSiteGroupId();
 	</div>
 </div>
     
-<div class="text-center py-3">
-			<h2 class="mt-5 pb-0 text-28p"><liferay-ui:message key="noipawebformassistenza.wizard.start" /> </h2>
-			
+<div class="text-center py-3">			
 			<h2 class="pb-0 text-28p" id="cat-1"><liferay-ui:message key="noipawebformassistenza.wizard.start.1" /></h2>
 </div>
 
 <div class="py-3 text-center">
 <div class="row">
 	<div class="col-md-12">
-		<a title="<liferay-ui:message key="noipawebformassistenza.label.link.amministrato.aria.label" />" aria-label="<liferay-ui:message key="noipawebformassistenza.label.link.amministrato.aria.label" />" href="${urlAmministrato}" class="noipa-m-width btn btn-default bg-transparent btn-lg my-5 px-5 text-20p py-2"><liferay-ui:message key="noipawebformassistenza.label.link.amministrato" /></a>
+		<a title="<liferay-ui:message key="noipawebformassistenza.label.link.amministrato.aria.label" />" aria-label="<liferay-ui:message key="noipawebformassistenza.label.link.amministrato.aria.label" />" href="${urlAmministrato}" class="noipa-m-width btn btn-default bg-transparent btn-lg px-5 text-22p"><liferay-ui:message key="noipawebformassistenza.label.link.amministrato" /></a>
 	</div>
 </div>	
 	
-<div class="row">	
+<div class="row mt-3">	
 	<div class="col-md-12">
-		<a title="<liferay-ui:message key="noipawebformassistenza.label.link.mvp.aria.label" />" aria-label="<liferay-ui:message key="noipawebformassistenza.label.link.mvp.aria.label" />" href="${urlMVP}" class="noipa-m-width btn btn-default bg-transparent btn-lg my-5 px-5 text-16p py-2"><liferay-ui:message key="noipawebformassistenza.label.link.mvp" /></a>
+		<a title="<liferay-ui:message key="noipawebformassistenza.label.link.mvp.aria.label" />" aria-label="<liferay-ui:message key="noipawebformassistenza.label.link.mvp.aria.label" />" href="${urlMVP}" class="noipa-m-width btn btn-default bg-transparent btn-lg px-5 text-16p"><liferay-ui:message key="noipawebformassistenza.label.link.mvp" /></a>
 	</div>
 </div>	
-<div class="row">	
+<div class="row mt-3">	
 	<div class="col-md-12">
-		<a title="<liferay-ui:message key="noipawebformassistenza.label.link.enteCreditore.aria.label" />" aria-label="<liferay-ui:message key="noipawebformassistenza.label.link.enteCreditore.aria.label" />" href="${urlEntiCreditori}" class="noipa-m-width btn btn-default bg-transparent btn-lg my-5 px-5 text-16p py-2"><liferay-ui:message key="noipawebformassistenza.label.link.enteCreditore" /></a>
+		<a title="<liferay-ui:message key="noipawebformassistenza.label.link.enteCreditore.aria.label" />" aria-label="<liferay-ui:message key="noipawebformassistenza.label.link.enteCreditore.aria.label" />" href="${urlEntiCreditori}" class="noipa-m-width btn btn-default bg-transparent btn-lg px-5 text-16p"><liferay-ui:message key="noipawebformassistenza.label.link.enteCreditore" /></a>
 	</div>
 </div>
 
-<div class="row">	
+<div class="row mt-3">	
 	<div class="col-md-12">
-		<a title="<liferay-ui:message key="noipawebformassistenza.label.link.percettorePensione.aria.label" />" aria-label="<liferay-ui:message key="noipawebformassistenza.label.link.percettorePensione.aria.label" />" href="${urlAreaPensioni}" class="noipa-m-width btn btn-default bg-transparent btn-lg my-5 px-5 text-16p py-2"><liferay-ui:message key="noipawebformassistenza.label.link.percettorePensione" /></a>
+		<a title="<liferay-ui:message key="noipawebformassistenza.label.link.percettorePensione.aria.label" />" aria-label="<liferay-ui:message key="noipawebformassistenza.label.link.percettorePensione.aria.label" />" href="${urlAreaPensioni}" class="noipa-m-width btn btn-default bg-transparent btn-lg px-5 text-16p"><liferay-ui:message key="noipawebformassistenza.label.link.percettorePensione" /></a>
 	</div>
 </div>	
 

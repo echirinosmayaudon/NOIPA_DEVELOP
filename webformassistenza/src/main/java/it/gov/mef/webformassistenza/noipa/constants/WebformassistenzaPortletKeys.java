@@ -22,7 +22,7 @@ public class WebformassistenzaPortletKeys {
 	
 	/** Intestazioni dei files csv */
 	public static String AmministrazioniCSVheader = "Amministrazione;Tipo;Codice;Amministrato;MVP;AreaPensioni;EntiCreditori";
-	public static String TipologieCSVheader = "sezione;sanita;area;tematica;tipoProblema;categoriaUtente";
+	public static String TipologieCSVheader = "sezione;sanita;area;tematica;tipoProblema;categoriaUtente;categoriaUtenteDescrizione";
 	
 
 }

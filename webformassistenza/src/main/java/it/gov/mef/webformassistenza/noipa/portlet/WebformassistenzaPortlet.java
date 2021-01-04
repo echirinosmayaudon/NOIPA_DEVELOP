@@ -295,6 +295,10 @@ public class WebformassistenzaPortlet extends MVCPortlet {
     		
     	PortletPreferences preferences = actionRequest.getPreferences();
     	String codiceCaptcha = preferences.getValue("mailconfigNominativo", _exampleConfiguration.mailconfigNominativo());
+    	
+    	String linkDocumentoPrivacy = preferences.getValue("linkDocumentoPrivacy", _exampleConfiguration.linkDocumentoPrivacy());
+    	actionRequest.setAttribute("linkDocumentoPrivacy", linkDocumentoPrivacy);
+    	
     	actionRequest.setAttribute("codiceCaptcha", codiceCaptcha);
     	actionResponse.setRenderParameter("jspPage", "/view_form.jsp");
     	

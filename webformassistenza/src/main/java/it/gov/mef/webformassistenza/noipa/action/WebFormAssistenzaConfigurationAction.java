@@ -80,6 +80,10 @@ public class WebFormAssistenzaConfigurationAction extends DefaultConfigurationAc
 		String idWebContentRisposta = ParamUtil.getString(actionRequest, "idWebContentRisposta");
         _log.info("entro in : "+noipa_type_config+" - idWebContentRisposta: "+idWebContentRisposta);
         setPreference(actionRequest, "idWebContentRisposta", idWebContentRisposta);
+        
+        String linkDocumentoPrivacy = ParamUtil.getString(actionRequest, "linkDocumentoPrivacy");
+        _log.info("entro in : "+noipa_type_config+" - linkDocumentoPrivacy: "+linkDocumentoPrivacy);
+        setPreference(actionRequest, "linkDocumentoPrivacy", linkDocumentoPrivacy);
 	}
 
 

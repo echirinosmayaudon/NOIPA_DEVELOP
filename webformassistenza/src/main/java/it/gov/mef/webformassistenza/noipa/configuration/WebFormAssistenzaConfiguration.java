@@ -10,6 +10,14 @@ import aQute.bnd.annotation.metatype.Meta;
 @Meta.OCD(id = "it.gov.mef.webformassistenza.noipa.configuration.WebFormAssistenzaConfiguration")
 public interface WebFormAssistenzaConfiguration {
 
+    
+    /**
+     * Link documento privacy
+     *
+     * @return the string
+     */
+    @Meta.AD(required = false,deflt="#")
+    public String linkDocumentoPrivacy();
 	
 	
     /**
@@ -75,7 +83,7 @@ public interface WebFormAssistenzaConfiguration {
      * @return the string
      */
     @Meta.AD(required = false)
-    public String idWebContentRisposta();    
+    public String idWebContentRisposta();        
     
     /**
      * Service url.

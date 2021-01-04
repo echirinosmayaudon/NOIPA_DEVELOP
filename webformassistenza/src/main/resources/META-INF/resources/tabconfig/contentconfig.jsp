@@ -51,6 +51,15 @@
 		  </aui:input></div>
 		  <div class="col-md-4"></div>
 		</div>
+		
+		<div class="row">
+		  <div class="col-md-4">Link documento privacy</div>
+		  <div class="col-md-4">
+		  <aui:input name="linkDocumentoPrivacy" type="text"  label="" value="<%= linkDocumentoPrivacy %>" >
+		  </aui:input></div>
+		  <div class="col-md-4"></div>
+		</div>
+		
 		<div class="row">
 		<div class="col-md-4"><aui:button type="submit"/></div>
 		</div>       

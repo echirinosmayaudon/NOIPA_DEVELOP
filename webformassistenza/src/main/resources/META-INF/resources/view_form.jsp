@@ -229,8 +229,8 @@
 	<p><liferay-ui:message key="noipawebformassistenza.dati.dett.note" /></p>
 	<br>
 	<p>
-	<liferay-ui:message key="noipawebformassistenza.dati.nota.finale" />
-	<liferay-ui:message key="noipawebformassistenza.dati.nota.finale.link" />
+	<liferay-ui:message key="noipawebformassistenza.dati.nota.finale.documento" />
+	<liferay-ui:message key="noipawebformassistenza.dati.nota.finale.documento.link" arguments="${linkDocumentoPrivacy}" />
 	</p>
 
 	<div class="text-center my-5">
@@ -316,8 +316,8 @@
 		_items = [];
 		$.each(jsonTipologie, function(i, item) {
 			if(item.sezione==_sezione && item.sanita == _isSanita){
-				if($.inArray(item.categoriaUtente,_items)< 0) {
-				_items.push(item.categoriaUtente);
+				if($.inArray(item.categoriaUtente+"##"+item.categoriaUtenteDescrizione,_items)< 0) {
+				_items.push(item.categoriaUtente+"##"+item.categoriaUtenteDescrizione);
 				}
 			}
 		});
@@ -384,7 +384,10 @@
         data = filterCategoria();
         
         $.each(data, function(i, item) {
-        	$option = $("<option/>").attr("value", item).text(item);
+        	value=item.split("##")[0];
+        	text=item.split("##")[1];
+        	
+        	$option = $("<option/>").attr("value", value).text(text);
         	comboz.append($option);
         });	
         

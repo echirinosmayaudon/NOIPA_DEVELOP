@@ -43,11 +43,9 @@ WebFormAssistenzaConfiguration exampleConfiguration =
         (WebFormAssistenzaConfiguration)
         renderRequest.getAttribute(WebFormAssistenzaConfiguration.class.getName());
 	
+	String linkDocumentoPrivacy = StringPool.BLANK;
 	String listaAmministrazioni = StringPool.BLANK;
 	String listaTipologie = StringPool.BLANK; 
-	
-	
-
 	String mailconfigMail  = StringPool.BLANK;
 	String mailconfigNominativo  = StringPool.BLANK;
 	String mailconfigNominativoBE  = StringPool.BLANK;
@@ -84,15 +82,7 @@ WebFormAssistenzaConfiguration exampleConfiguration =
     	            "token", exampleConfiguration.token());
     	
     	String noipa_type_config = "";
-		//_log.info("entro in : "+noipa_type_config+" - serviceUrl: "+serviceUrl);
-		//_log.info("entro in : "+noipa_type_config+" - sendMethod: "+sendMethod);
-		//_log.info("entro in : "+noipa_type_config+" - chechMethod: "+chechMethod);
-		//_log.info("entro in : "+noipa_type_config+" - userId: "+userId);
-		//_log.info("entro in : "+noipa_type_config+" - password: "+password);
-		//_log.info("entro in : "+noipa_type_config+" - token: "+token);
-    	
-    	
-    	
+	    	
     	mailconfigMailHp =
 	        portletPreferences.getValue(
 	            "mailconfigMailHp", exampleConfiguration.mailconfigMailHp());
@@ -123,6 +113,9 @@ WebFormAssistenzaConfiguration exampleConfiguration =
       
         listaTipologie =
                 portletPreferences.getValue("listaTipologie", exampleConfiguration.listaTipologie());
+        
+        linkDocumentoPrivacy=portletPreferences.getValue(
+                "linkDocumentoPrivacy", exampleConfiguration.linkDocumentoPrivacy());
     } 
 %>
 
