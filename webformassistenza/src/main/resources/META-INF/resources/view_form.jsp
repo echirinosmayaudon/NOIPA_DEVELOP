@@ -228,11 +228,20 @@
 
 	<p><liferay-ui:message key="noipawebformassistenza.dati.dett.note" /></p>
 	<br>
+	
+	<div id="contenutoPrivacyPolicy">
+		<liferay-portlet:runtime
+					portletName="com_liferay_journal_content_web_portlet_JournalContentPortlet" /> 
+	</div>
+	
+	<%-- 
 	<p>
 	<liferay-ui:message key="noipawebformassistenza.dati.nota.finale.documento" />
 	<liferay-ui:message key="noipawebformassistenza.dati.nota.finale.documento.link" arguments="${linkDocumentoPrivacy}" />
 	</p>
-
+	--%>
+	
+	
 	<div class="text-center my-5">
 		<aui:button-row>
 			<aui:button type="submit" name="invia"

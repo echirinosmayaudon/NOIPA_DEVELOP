@@ -43,7 +43,7 @@ WebFormAssistenzaConfiguration exampleConfiguration =
         (WebFormAssistenzaConfiguration)
         renderRequest.getAttribute(WebFormAssistenzaConfiguration.class.getName());
 	
-	String linkDocumentoPrivacy = StringPool.BLANK;
+
 	String listaAmministrazioni = StringPool.BLANK;
 	String listaTipologie = StringPool.BLANK; 
 	String mailconfigMail  = StringPool.BLANK;
@@ -114,8 +114,6 @@ WebFormAssistenzaConfiguration exampleConfiguration =
         listaTipologie =
                 portletPreferences.getValue("listaTipologie", exampleConfiguration.listaTipologie());
         
-        linkDocumentoPrivacy=portletPreferences.getValue(
-                "linkDocumentoPrivacy", exampleConfiguration.linkDocumentoPrivacy());
     } 
 %>
 
