@@ -308,7 +308,7 @@
 	function loadComboEnte(amministrazioni){
 			comboz = $("#<portlet:namespace/>amminis");
 			comboz.empty();
-	        comboz.append("<option>"+emptyOptionText+"</option>");
+	        comboz.append("<option value>"+emptyOptionText+"</option>");
 	         
 	        $.each(amministrazioni, function(i, item) {    
 	        	$option = $("<option/>").attr("value", item.Tipo+"-"+item.Codice).text(item.Amministrazione);
@@ -388,7 +388,7 @@
 	function loadComboCategoria(){
 		comboz = $("#<portlet:namespace/>catuser");
 		comboz.empty();
-		comboz.append("<option>"+emptyOptionText+"</option>");
+		comboz.append("<option value>"+emptyOptionText+"</option>");
 
         data = filterCategoria();
         
@@ -406,7 +406,7 @@
 	function loadComboArea(){
 		comboz = $("#<portlet:namespace/>area");
 		comboz.empty();
-		comboz.append("<option>"+emptyOptionText+"</option>");
+		comboz.append("<option value>"+emptyOptionText+"</option>");
         
         data = filterArea();
         
@@ -421,7 +421,7 @@
 	function loadComboTematica(){
 		comboz = $("#<portlet:namespace/>tematica");
 		comboz.empty();
-		comboz.append("<option>"+emptyOptionText+"</option>");
+		comboz.append("<option value>"+emptyOptionText+"</option>");
         data = filterTematica();
         
         $.each(data, function(i, item) {
@@ -435,7 +435,7 @@
 	function loadComboTipoProblema(){
 		comboz = $("#<portlet:namespace/>tipologia");
 		comboz.empty();
-		comboz.append("<option>"+emptyOptionText+"</option>");
+		comboz.append("<option value>"+emptyOptionText+"</option>");
         data = filterTipoProblema();
         
         $.each(data, function(i, item) {

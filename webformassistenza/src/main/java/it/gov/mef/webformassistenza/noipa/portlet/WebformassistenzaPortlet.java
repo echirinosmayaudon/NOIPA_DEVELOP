@@ -352,6 +352,14 @@ public class WebformassistenzaPortlet extends MVCPortlet {
     	String area =ParamUtil.get(actionRequest, "area", "");
     	String tematica = ParamUtil.get(actionRequest, "tematica", "");
     	String tipologia = ParamUtil.get(actionRequest, "tipologia", "");
+    	
+    	_log.info("amminis: "+amminis);
+    	_log.info("catuser: "+catuser);
+    	_log.info("area: "+area);
+    	_log.info("tematica: "+tematica);
+    	_log.info("tipologia: "+tipologia);
+    	
+    	
     	String descrizione = ParamUtil.get(actionRequest, "descrizione", "");
     	String captchaText= ParamUtil.get(actionRequest, "captchaText", "");
     	String sezione = ParamUtil.get(actionRequest, "sezione", "");
